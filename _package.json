@@ -1,0 +1,28 @@
+{
+  "name": "generator-dandan.com",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "jshint .",
+    "validate": "yarn list"
+  },
+  "pre-commit": [
+    "lint",
+    "validate",
+    "test"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^1.1.1"
+  },
+  "devDependencies": {
+    "precommit-hook": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=7.8.0",
+    "npm": ">=4.4.4",
+    "yarn": ">=0.22.0"
+  },
+  "private": true,
+  "keywords": [
+    "yeoman-generator"
+  ]
+}

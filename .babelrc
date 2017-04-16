@@ -1,0 +1,36 @@
+{
+  "presets": [
+    ["env", {"modules": "umd"}],
+    "latest",
+    "flow"
+  ],
+  "env": {
+    "production": {
+      "presets": [
+        ["env", {"modules": "umd"}],
+        "latest",
+        "flow"
+      ],
+      "plugins": [
+        "lodash",
+        "transform-class-properties",
+        "transform-decorators-legacy",
+        "transform-es3-member-expression-literals",
+        "transform-es3-property-literals",
+        "transform-exponentiation-operator",
+        "transform-flow-strip-types",
+        "transform-object-rest-spread"
+      ]
+    }
+  },
+  "plugins": [
+    "lodash",
+    "transform-class-properties",
+    "transform-decorators-legacy",
+    "transform-es3-member-expression-literals",
+    "transform-es3-property-literals",
+    "transform-exponentiation-operator",
+    "transform-flow-strip-types",
+    "transform-object-rest-spread"
+  ]
+}
