@@ -8,13 +8,10 @@
   "scripts": {
     "prepublish": "nsp check",
     "pretest": "eslint . --fix",
-    "test": "jest",
     "lint": "jshint .",
     "validate": "yarn list"
   },
   "pre-commit": [
-    "lint",
-    "validate",
     "test"
   ],
   "dependencies": {
