@@ -1,0 +1,107 @@
+- var siteIconOpt = {a: {rel: 'logo', type: 'image/svg', href:'logo.svg'}, b: {rel: 'icon', type: 'image/gif', href: 'favicon-32x32.gif'}, c: {rel: 'icon', type: 'image/jpg', href: 'favicon-32x32.jpg'}, d: {rel: 'icon', type: 'image/vnd.microsoft.icon', href: 'favicon.ico'}, e: {rel: 'shortcut icon', type: 'image/x-icon', href: 'favicon.ico'}, f: {rel: 'address bar icon', type: 'image/x-icon', href: 'favicon.ico'}, g: {rel: 'icon', type: 'image/png', href: 'favicon-16x16.png'}, h: {rel: 'icon', type: 'image/png', href: 'favicon-32x32.png'}, i: {rel: 'icon', type: 'image/png', href: 'favicon-96x96.png'}, j: {rel: 'icon', type: 'image/png', href: 'favicon-160x160.png'}, k: {rel: 'icon', type: 'image/png', href: 'favicon-196x196.png'}}
+- var env = process.env.NODE_ENV === 'production' ? 'production' : 'development'
+- var dll = process.env.DLL === 'true' ? 'true' : 'false'
+
+mixin ie (sCondition, eCondition)
+  |<!--[!{sCondition}>
+  block
+  |<!!{eCondition}]-->
+
+mixin doc
+  head
+    meta(charset='utf-8')
+    base(href='/', target='_blank')
+
+    meta(name='viewport', content='width=1200, initial-scale=1.0, maximum-scale=1')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge, requiresActiveX=true')
+    meta(name='renderer', content='webkit')
+    meta(name='HandheldFriendly', content='true')
+    meta(http-equiv='cleartype', content='on')
+    meta(name='msapplication-tap-highlight', content='no')
+
+    meta(name='url', content='http://www.dandan.com/')
+    meta(name='identifier-URL', content='http://www.dandan.com/')
+    meta(name='linkage', content='http://www.dandan.com/')
+    link(rel='canonical', href='http://www.dandan.com/')
+
+    block title
+
+    meta(name='keywords', content='蛋蛋网')
+    meta(name='description', content='智慧农业云平台')
+
+    meta(http-equiv='cache-control', content='public')
+    meta(http-equiv='expires', content='max-age')
+
+    meta(http-equiv='windows-Target', content='_top')
+
+    block private-stylesheet
+
+    link(rel='stylesheet', href='//api.map.baidu.com/res/11/bmap.css')
+    link(rel='preload', href='//api.map.baidu.com/res/11/bmap.css', as='style')
+
+    // build:css styles/bundle.css
+    link(rel='stylesheet', href='vendor/jquery-ui-1.12.1.custom/jquery-ui.css')
+    link(rel='stylesheet', href='vendor/select2/4.0.3/select2.css')
+    link(rel='stylesheet', href='vendor/sweetalert/sweetalert.css')
+    link(rel='stylesheet', href='styles/main.css')
+    // endbuild
+
+    if env === 'production'
+      link(rel='preload', href='styles/bundle.css', as='style')
+
+    //- 需要探究站点图标本身极其容量同页面渲染性能之间的关系
+    //- each val, index in siteIconOpt
+    //-   if val.rel === 'address bar icon'
+    //-     +ie('if lt IE 8]', '[endif')
+    //-       link(rel=val.rel, type=val.type, href='images/favicon/' + val.href)
+    //-   else
+    //-     link(rel=val.rel, type=val.type, href='images/favicon/' + val.href)
+    link(rel='icon', type='image/x-icon', href='images/favicon/favicon.ico')
+
+    script(async, src='vendor/modernizr-custom/3.5.0/modernizr.js')
+    link(rel='preload', href='vendor/modernizr-custom/3.5.0/modernizr.js', as='script')
+
+    block private-head-javascript
+
+  body
+    block content
+
+    if dll === 'true'
+      script(src='scripts/dll/vendor.dll.js')
+
+    // build:js scripts/bundle.js
+    script(src='vendor/jquery3x/dist/jquery.min.js')
+
+    if env === 'development'
+      script(src='scripts/config/env.js')
+
+    script(src='vendor/jquery-ui-1.12.1.custom/jquery-ui.min.js')
+    script(src='vendor/jquery-nicescroll/3.6.8-fix/jquery.nicescroll.js')
+    script(src='vendor/jquery-validation/1.16.0/jquery.validate.min.js')
+    script(src='vendor/jquery-validation/1.16.0/additional-methods.min.js')
+    script(src='vendor/select2/4.0.3/select2.min.js')
+    script(src='vendor/lazysizes/lazysizes.min.js')
+    script(src='vendor/icheck/1.0.2/icheck.min.js')
+    script(src='vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js')
+    script(src='scripts/main.js')
+    // endbuild
+
+    if env === 'production'
+      link(rel='preload', href='scripts/bundle.js', as='script')
+
+doctype html
+
+if env === 'development'
+  <!--[if lte IE 9]> <html class='ie ie9 ie-lt10 no-js' lang='zh-cmn-Hans'> <![endif]-->
+  <!--[if !IE]><!-->
+  html(lang='zh-cmn-Hans', class='ie-gt9 no-js')
+    <!--<![endif]-->
+    +doc
+
+//- 'production', html(lang='zh-cmn-Hans', class='ie-gt9 no-js', manifest='manifest.appcache')
+if env === 'production'
+  <!--[if lte IE 9]> <html class='ie ie9 ie-lt10 no-js' lang='zh-cmn-Hans'> <![endif]-->
+  <!--[if !IE]><!-->
+  html(lang='zh-cmn-Hans', class='ie-gt9 no-js', manifest='manifest.appcache')
+    <!--<![endif]-->
+    +doc

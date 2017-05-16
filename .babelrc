@@ -1,18 +1,17 @@
 {
   "presets": [
-    ["env", {"modules": "umd"}],
+    ["env", {"modules": false}],
     "latest",
     "flow"
   ],
   "env": {
     "production": {
       "presets": [
-        ["env", {"modules": "umd"}],
+        ["env", {"modules": false}],
         "latest",
         "flow"
       ],
       "plugins": [
-        "lodash",
         "transform-class-properties",
         "transform-decorators-legacy",
         "transform-es3-member-expression-literals",
@@ -24,7 +23,6 @@
     }
   },
   "plugins": [
-    "lodash",
     "transform-class-properties",
     "transform-decorators-legacy",
     "transform-es3-member-expression-literals",

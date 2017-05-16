@@ -1,0 +1,31 @@
+$bg: #fff;
+
+.page-example {
+  background-color: $bg;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  $gradient-color-1: rgba(0, 0, 0, .2);
+  $gradient-color-2: rgba(0, 0, 0, .7);
+  $gradient-color-3: rgba(0, 0, 0, .9);
+
+  .bg-test-fill-radial-gradient {
+    background: radial-gradient(circle, $gradient-color-1 5%, $gradient-color-2 60%, $gradient-color-3 100%);
+  }
+
+  $main-content-bg: #000;
+
+  main {
+    height: 666px;
+    background-color: $main-content-bg;
+
+    .demo {
+      border-radius: 50%;
+      height: 350px;
+      width: 350px;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+- var siteIconOpt = {a: {rel: 'logo', type: 'image/svg', href:'logo.svg'}, b: {rel: 'icon', type: 'image/gif', href: 'favicon-32x32.gif'}, c: {rel: 'icon', type: 'image/jpg', href: 'favicon-32x32.jpg'}, d: {rel: 'icon', type: 'image/vnd.microsoft.icon', href: 'favicon.ico'}, e: {rel: 'shortcut icon', type: 'image/x-icon', href: 'favicon.ico'}, f: {rel: 'address bar icon', type: 'image/x-icon', href: 'favicon.ico'}, g: {rel: 'icon', type: 'image/png', href: 'favicon-16x16.png'}, h: {rel: 'icon', type: 'image/png', href: 'favicon-32x32.png'}, i: {rel: 'icon', type: 'image/png', href: 'favicon-96x96.png'}, j: {rel: 'icon', type: 'image/png', href: 'favicon-160x160.png'}, k: {rel: 'icon', type: 'image/png', href: 'favicon-196x196.png'}}
+- var env = process.env.NODE_ENV === 'production' ? 'production' : 'development'
+
+mixin ie (sCondition, eCondition)
+  |<!--[!{sCondition}>
+  block
+  |<!!{eCondition}]-->
+
+mixin doc
+  head
+    meta(charset='utf-8')
+    base(href='/', target='_blank')
+
+    meta(name='viewport', content='width=1200, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,requiresActiveX=true')
+    meta(name='renderer', content='webkit')
+    meta(name='HandheldFriendly', content='true')
+    meta(http-equiv='cleartype', content='on')
+    meta(name='msapplication-tap-highlight', content='no')
+
+    meta(name='url', content='http://www.dandan.com/')
+    meta(name='identifier-URL', content='http://www.dandan.com/')
+    meta(name='linkage', content='http://www.dandan.com/')
+    link(rel='canonical', href='http://www.dandan.com/')
+
+    block title
+
+    meta(name='keywords', content='蛋蛋网')
+    meta(name='description', content='智慧农业云平台')
+
+    meta(http-equiv='cache-control', content='public')
+    meta(http-equiv='expires', content='max-age')
+
+    meta(http-equiv='windows-Target', content='_top')
+
+    each val, index in siteIconOpt
+      if val.rel === 'address bar icon'
+        +ie('if lt IE 8]', '[endif')
+          link(rel=val.rel, type=val.type, href='images/favicon/' + val.href)
+      else
+        link(rel=val.rel, type=val.type, href='images/favicon/' + val.href)
+  body
+    block content
+
+doctype html
+<!--[if lte IE 9]> <html class='ie ie9 ie-lt10 no-js' lang='zh-cmn-Hans'> <![endif]-->
+<!--[if !IE]><!-->
+html(lang='zh-cmn-Hans', class='ie-gt9 no-js')
+  <!--<![endif]-->
+  +doc

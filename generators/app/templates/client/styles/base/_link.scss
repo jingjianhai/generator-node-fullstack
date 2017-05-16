@@ -1,0 +1,13 @@
+@import '../abstract/variables';
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  :hover,
+  :focus,
+  :visited {
+    color: $link-color;
+    text-decoration: none;
+  }
+}
