@@ -22,6 +22,10 @@ var _assign = require('lodash/assign');
 
 var _assign2 = _interopRequireDefault(_assign);
 
+var _isEqual = require('lodash/isEqual');
+
+var _isEqual2 = _interopRequireDefault(_isEqual);
+
 var _gitConfig = require('git-config');
 
 var _gitConfig2 = _interopRequireDefault(_gitConfig);
@@ -73,6 +77,11 @@ var licenses = [{
   value: 'nolicense'
 }];
 
+// TODO: 新功能，输入目前确认的开发者信息，用于填充 `.mailmap`、`package.json` 等文件
+// TODO: 新功能，设定不同环境下服务器、数据库等配置
+// TODO: 修复，生成的 `doc/deployment.md` 文件内密码字样出现转义现象
+// TODO: 新功能，设置 TinyPNG 密钥
+
 var NodeFullstack = function (_Generator) {
   _inherits(NodeFullstack, _Generator);
 
@@ -84,6 +93,21 @@ var NodeFullstack = function (_Generator) {
     _this.argument('appname', {
       type: String,
       required: false
+    });
+
+    _this.option('skip-welcome-message', {
+      desc: '跳过欢迎消息',
+      type: Boolean
+    });
+
+    _this.option('skip-install-message', {
+      desc: '跳过安装消息',
+      type: Boolean
+    });
+
+    _this.option('skip-install', {
+      desc: '跳过安装环节',
+      type: Boolean
     });
 
     _this.option('name', {
@@ -152,11 +176,11 @@ var NodeFullstack = function (_Generator) {
     value: function prompting() {
       var _this2 = this;
 
-      var generator = _chalk2['default'].red('Node 全栈');
-      this.log((0, _yosay2['default'])('\u6B22\u8FCE\u4F7F\u7528 ' + generator + ' \u751F\u6210\u5668'));
+      if (!this.options['skip-welcome-message']) {
+        var generator = _chalk2['default'].red('Node 全栈');
+        this.log((0, _yosay2['default'])('\u6B22\u8FCE\u4F7F\u7528 ' + generator + ' \u751F\u6210\u5668'));
+      }
 
-      // TODO: 输入目前确认的开发者信息，用于填充 `.mailmap`、`package.json` 等文件
-      // TODO: 设定不同环境下服务器、数据库等配置
       var prompts = [{
         type: 'input',
         name: 'iptProjectName',
@@ -178,7 +202,7 @@ var NodeFullstack = function (_Generator) {
         name: 'name',
         message: '你的姓名',
         'default': this.options.name || this.gitc.user.name,
-        when: this.options.name === null || this.options.name === undefined
+        when: (0, _isEqual2['default'])(this.options.name, null) || (0, _isEqual2['default'])(this.options.name, undefined)
       }, {
         name: 'email',
         message: '你的电子邮箱 (可选):',
@@ -194,9 +218,9 @@ var NodeFullstack = function (_Generator) {
         name: 'license',
         message: this.options.licensePrompt,
         'default': this.options.defaultLicense,
-        when: !this.options.license || licenses.find(function (x) {
-          return x.value === _this2.options.license;
-        }) === undefined,
+        when: !this.options.license || (0, _isEqual2['default'])(licenses.find(function (x) {
+          return (0, _isEqual2['default'])(x.value, _this2.options.license);
+        }), undefined),
         choices: licenses
       }];
 
@@ -214,7 +238,6 @@ var NodeFullstack = function (_Generator) {
     key: 'writing',
     value: function writing() {
       this._copyTpl();
-
       this._copy();
     }
   }, {
@@ -264,11 +287,13 @@ var NodeFullstack = function (_Generator) {
   }, {
     key: '_copy',
     value: function _copy() {
+      var _this3 = this;
+
       var _self = this;
       var dirsToCopy = ['.atom', '.gitlab', '.sublimetext', '.vscode', 'flow-typed', 'server', 'test', 'tool', 'task', 'client'];
 
       (0, _forEach2['default'])(dirsToCopy, function (item) {
-        _self.fs.copy(_self.templatePath(item), _self.destinationPath(item));
+        _self.fs.copy(_glob2['default'].sync(_this3.templatePath(item + '/**/*'), { dot: true }), _self.destinationPath(item));
       });
     }
   }, {
@@ -277,7 +302,9 @@ var NodeFullstack = function (_Generator) {
       this.installDependencies({
         npm: false,
         bower: true,
-        yarn: true
+        yarn: true,
+        skipMessage: this.options['skip-install-message'],
+        skipInstall: this.options['skip-install']
       });
     }
   }]);

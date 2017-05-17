@@ -5,6 +5,7 @@ import chalk from 'chalk';
 import yosay from 'yosay';
 import forEach from 'lodash/forEach';
 import assign from 'lodash/assign';
+import isEqual from 'lodash/isEqual';
 import gitConfig from 'git-config';
 import glob from 'glob';
 
@@ -45,6 +46,10 @@ let licenses = [
   }
 ];
 
+// TODO: 新功能，输入目前确认的开发者信息，用于填充 `.mailmap`、`package.json` 等文件
+// TODO: 新功能，设定不同环境下服务器、数据库等配置
+// TODO: 修复，生成的 `doc/deployment.md` 文件内密码字样出现转义现象
+// TODO: 新功能，设置 TinyPNG 密钥
 class NodeFullstack extends Generator {
   constructor(args, opts) {
     super(args, opts);
@@ -52,6 +57,21 @@ class NodeFullstack extends Generator {
     this.argument('appname', {
       type: String,
       required: false
+    });
+
+    this.option('skip-welcome-message', {
+      desc: '跳过欢迎消息',
+      type: Boolean
+    });
+
+    this.option('skip-install-message', {
+      desc: '跳过安装消息',
+      type: Boolean
+    });
+
+    this.option('skip-install', {
+      desc: '跳过安装环节',
+      type: Boolean
     });
 
     this.option('name', {
@@ -112,12 +132,11 @@ class NodeFullstack extends Generator {
     this.gitc.user = this.gitc.user || {};
   }
   prompting() {
-    let generator = chalk.red('Node 全栈');
-    this.log(yosay(`欢迎使用 ${generator} 生成器`));
+    if (!this.options['skip-welcome-message']) {
+      let generator = chalk.red('Node 全栈');
+      this.log(yosay(`欢迎使用 ${generator} 生成器`));
+    }
 
-    // TODO: 新功能，输入目前确认的开发者信息，用于填充 `.mailmap`、`package.json` 等文件
-    // TODO: 新功能，设定不同环境下服务器、数据库等配置
-    // TODO: 修复，生成的 `doc/deployment.md` 文件内密码字样出现转义现象
     const prompts = [{
       type: 'input',
       name: 'iptProjectName',
@@ -139,7 +158,8 @@ class NodeFullstack extends Generator {
       name: 'name',
       message: '你的姓名',
       default: this.options.name || this.gitc.user.name,
-      when: this.options.name === null || this.options.name === undefined
+      when: isEqual(this.options.name, null) ||
+              isEqual(this.options.name, undefined)
     }, {
       name: 'email',
       message: '你的电子邮箱 (可选):',
@@ -156,7 +176,10 @@ class NodeFullstack extends Generator {
       message: this.options.licensePrompt,
       default: this.options.defaultLicense,
       when: !this.options.license ||
-              licenses.find(x => x.value === this.options.license) === undefined,
+              isEqual(
+                licenses.find(x => isEqual(x.value, this.options.license)),
+                undefined
+              ),
       choices: licenses
     }];
 
@@ -173,7 +196,6 @@ class NodeFullstack extends Generator {
 
   writing() {
     this._copyTpl();
-
     this._copy();
   }
 
@@ -249,7 +271,7 @@ class NodeFullstack extends Generator {
 
     forEach(dirsToCopy, item => {
       _self.fs.copy(
-        _self.templatePath(item),
+        glob.sync(this.templatePath(item + '/**/*'), {dot: true}),
         _self.destinationPath(item)
       );
     });
@@ -259,7 +281,9 @@ class NodeFullstack extends Generator {
     this.installDependencies({
       npm: false,
       bower: true,
-      yarn: true
+      yarn: true,
+      skipMessage: this.options['skip-install-message'],
+      skipInstall: this.options['skip-install']
     });
   }
 }
