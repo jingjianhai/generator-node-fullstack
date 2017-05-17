@@ -10,7 +10,6 @@
 ./app/.*
 
 [libs]
-node_modules/iflow-jquery/index.js.flow
 
 [options]
 esproposal.class_static_fields=enable
@@ -21,4 +20,4 @@ module.ignore_non_literal_requires=true
 munge_underscores=true
 
 [version]
-0.44.0
+0.46.0

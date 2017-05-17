@@ -2,8 +2,23 @@
   "env": {
     "node": true
   },
-  "extends": "xo-space",
+  "extends": [
+    "xo-space",
+    "plugin:flowtype/recommended"
+  ],
+  "parser": "babel-eslint",
+  "plugins": [
+    "flowtype"
+  ],
+  "settings": {
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": true
+    }
+  },
   "rules": {
-    "no-warning-comments": 0
+    "no-warning-comments": 0,
+    "no-console": ["error", { allow: ["log", "error"] }],
+    "no-undef": 0,
+    "flowtype/no-types-missing-file-annotation": 0
   }
 }
