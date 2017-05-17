@@ -283,3 +283,6 @@ doc/scss-lint-report.json
 doc/scss-lint-report.xml
 
 *.tar.gz
+*.har
+licenses-dev.csv
+licenses.csv

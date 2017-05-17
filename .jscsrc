@@ -2,5 +2,6 @@
   "preset": "google",
   "excludeFiles": ["node_modules/**", "bower_components/**", "data"],
   "disallowMultipleVarDecl": false,
-  "validateQuoteMarks": false
+  "validateQuoteMarks": false,
+  "requireCamelCaseOrUpperCaseIdentifiers": false
 }
