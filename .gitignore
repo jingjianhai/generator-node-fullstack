@@ -286,3 +286,4 @@ doc/scss-lint-report.xml
 *.har
 licenses-dev.csv
 licenses.csv
+.yarnclean
