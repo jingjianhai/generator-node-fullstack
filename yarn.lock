@@ -2000,6 +2000,12 @@ gh-got@^5.0.0:
     got "^6.2.0"
     is-plain-obj "^1.1.0"
 
+git-config@^0.0.7:
+  version "0.0.7"
+  resolved "http://registry.npm.taobao.org/git-config/download/git-config-0.0.7.tgz#a9c8a3ef07a776c3d72261356d8b727b62202b28"
+  dependencies:
+    iniparser "~1.0.5"
+
 git-latest-semver-tag@^1.0.0:
   version "1.0.2"
   resolved "http://registry.npm.taobao.org/git-latest-semver-tag/download/git-latest-semver-tag-1.0.2.tgz#061130cbf4274111cc6be4612b3ff3a6d93e2660"
@@ -2311,6 +2317,10 @@ inherits@2.0.1:
 ini@^1.3.2, ini@~1.3.0:
   version "1.3.4"
   resolved "http://registry.npm.taobao.org/ini/download/ini-1.3.4.tgz#0537cb79daf59b59a1a517dff706c86ec039162e"
+
+iniparser@~1.0.5:
+  version "1.0.5"
+  resolved "http://registry.npm.taobao.org/iniparser/download/iniparser-1.0.5.tgz#836d6befe6dfbfcee0bccf1cf9f2acc7027f783d"
 
 inquirer@^0.12.0:
   version "0.12.0"
@@ -3756,11 +3766,7 @@ split@^1.0.0:
   dependencies:
     through "2"
 
-sprintf-js@^1.0.3:
-  version "1.1.0"
-  resolved "http://registry.npm.taobao.org/sprintf-js/download/sprintf-js-1.1.0.tgz#cffcaf702daf65ea39bb4e0fa2b299cec1a1be46"
-
-sprintf-js@~1.0.2:
+sprintf-js@^1.0.3, sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "http://registry.npm.taobao.org/sprintf-js/download/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
 
