@@ -1,13 +1,11 @@
 [ignore]
 <PROJECT_ROOT>/node_modules/.*
-<PROJECT_ROOT>/example/.*
 <PROJECT_ROOT>/task/.*
 <PROJECT_ROOT>/test/.*
 <PROJECT_ROOT>/tool/.*
-<PROJECT_ROOT>/app/vendor/.*
 
 [include]
-./app/.*
+./generators/.*
 
 [libs]
 
