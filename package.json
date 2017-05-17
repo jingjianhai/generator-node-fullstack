@@ -12,7 +12,7 @@
     "pretest": "./node_modules/.bin/eslint ./generators/**/*.es6 --fix",
     "check-large-dirs": "./node_modules/.bin/space-hogs",
     "security-check": "yarn lint && yarn flow && yarn check-package",
-    "check-package": "nsp check && yarn validate && yarn check --integrity && yarn deps-license",
+    "check-package": "./node_modules/.bin/nsp check && yarn validate && yarn check --integrity && yarn deps-license",
     "deps-license": "./node_modules/.bin/license-checker --production --csv --out licenses.csv && ./node_modules/.bin/license-checker --development --csv --out licenses-dev.csv",
     "validate": "yarn list --depth=0",
     "flow": "./node_modules/.bin/flow check",
