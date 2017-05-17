@@ -1,4 +1,4 @@
-# NODE 全栈工程生成器
+# NODE 全栈工程生成器 &middot; [![](https://img.shields.io/badge/status-is%20developing-green.svg?style=flat)](#plugin) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![build status](https://gitlab.com/dandan-repos/generator-node-fullstack/badges/master/build.svg)](https://gitlab.com/dandan-repos/generator-node-fullstack/commits/master)
 
 这是一个 **面向前端工程师** 的 Node 全栈工程生成器。
 
