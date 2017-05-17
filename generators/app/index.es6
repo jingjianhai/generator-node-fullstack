@@ -3,8 +3,9 @@
 import Generator from 'yeoman-generator';
 import chalk from 'chalk';
 import yosay from 'yosay';
+import forEach from 'lodash/forEach';
 
-class MyGenerator extends Generator {
+class NodeFullstack extends Generator {
   constructor(args, opts) {
     super(args, opts);
     this.argument('appname', {
@@ -13,21 +14,18 @@ class MyGenerator extends Generator {
     });
   }
   prompting() {
-    // Have Yeoman greet the user.
-    this.log(yosay(
-      'Welcome to the peachy ' +
-      chalk.red('generator-dandan-com') +
-      ' generator!'
-    ));
+    let generator = chalk.red('Node 全栈');
+    this.log(yosay(`欢迎使用 ${generator} 生成器`));
 
     // TODO: 输入目前确认的开发者信息，用于填充 `.mailmap`、`package.json` 等文件
     // TODO: 选择许可证
+    // TODO: 设定不同环境下服务器、数据库等配置
     const prompts = [{
       type: 'input',
       name: 'iptProjectName',
       message: '输入项目名称',
       required: true,
-      default: this.appname
+      default: this.options.appname || this.appname
     }, {
       type: 'input',
       name: 'iptProjectDescription',
@@ -48,62 +46,51 @@ class MyGenerator extends Generator {
   }
 
   writing() {
+    this._copyTpl();
+    this._copy();
+  }
+
+  _copyTpl() {
+    let passed = {
+      redisPassword: this.props.iptRedisPassword,
+      projectDescription: this.props.iptProjectDescription,
+      projectName: this.props.iptProjectName
+    };
+
     this.fs.copyTpl(
       this.templatePath(),
-      this.destinationPath(), {
-        redisPassword: this.props.iptRedisPassword,
-        projectDescription: this.props.iptProjectDescription,
-        projectName: this.props.iptProjectName
-      }
+      this.destinationPath(),
+      passed
     );
-    this.fs.copy(
-      this.templatePath('.atom'),
-      this.destinationPath('.atom')
-    );
-    this.fs.copy(
-      this.templatePath('.gitlab'),
-      this.destinationPath('.gitlab')
-    );
-    this.fs.copy(
-      this.templatePath('.sublimetext'),
-      this.destinationPath('.sublimetext')
-    );
-    this.fs.copy(
-      this.templatePath('.vscode'),
-      this.destinationPath('.vscode')
-    );
+
     this.fs.copyTpl(
       this.templatePath('doc'),
-      this.destinationPath('doc'), {
-        redisPassword: this.props.iptRedisPassword,
-        projectDescription: this.props.iptProjectDescription,
-        projectName: this.props.iptProjectName
-      }
+      this.destinationPath('doc'),
+      passed
     );
-    this.fs.copy(
-      this.templatePath('flow-typed'),
-      this.destinationPath('flow-typed')
-    );
-    this.fs.copy(
-      this.templatePath('server'),
-      this.destinationPath('server')
-    );
-    this.fs.copy(
-      this.templatePath('test'),
-      this.destinationPath('test')
-    );
-    this.fs.copy(
-      this.templatePath('tool'),
-      this.destinationPath('tool')
-    );
-    this.fs.copy(
-      this.templatePath('task'),
-      this.destinationPath('task')
-    );
-    this.fs.copy(
-      this.templatePath('client'),
-      this.destinationPath('client')
-    );
+  }
+
+  _copy() {
+    let _self = this;
+    let dirsToCopy = [
+      '.atom',
+      '.gitlab',
+      '.sublimetext',
+      '.vscode',
+      'flow-typed',
+      'server',
+      'test',
+      'tool',
+      'task',
+      'client'
+    ];
+
+    forEach(dirsToCopy, item => {
+      _self.fs.copy(
+        _self.templatePath(item),
+        _self.destinationPath(item)
+      );
+    });
   }
 
   install() {
@@ -115,4 +102,4 @@ class MyGenerator extends Generator {
   }
 }
 
-module.exports = MyGenerator;
+module.exports = NodeFullstack;

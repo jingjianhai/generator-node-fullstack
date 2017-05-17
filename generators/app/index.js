@@ -14,6 +14,10 @@ var _yosay = require('yosay');
 
 var _yosay2 = _interopRequireDefault(_yosay);
 
+var _forEach = require('lodash/forEach');
+
+var _forEach2 = _interopRequireDefault(_forEach);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -42,17 +46,18 @@ var MyGenerator = function (_Generator) {
     value: function prompting() {
       var _this2 = this;
 
-      // Have Yeoman greet the user.
-      this.log((0, _yosay2['default'])('Welcome to the peachy ' + _chalk2['default'].red('generator-dandan-com') + ' generator!'));
+      var generator = _chalk2['default'].red('Node 全栈');
+      this.log((0, _yosay2['default'])('\u6B22\u8FCE\u4F7F\u7528 ' + generator + ' \u751F\u6210\u5668'));
 
       // TODO: 输入目前确认的开发者信息，用于填充 `.mailmap`、`package.json` 等文件
       // TODO: 选择许可证
+      // TODO: 设定不同环境下服务器、数据库等配置
       var prompts = [{
         type: 'input',
         name: 'iptProjectName',
         message: '输入项目名称',
         required: true,
-        'default': this.appname
+        'default': this.options.appname || this.appname
       }, {
         type: 'input',
         name: 'iptProjectDescription',
@@ -74,26 +79,31 @@ var MyGenerator = function (_Generator) {
   }, {
     key: 'writing',
     value: function writing() {
-      this.fs.copyTpl(this.templatePath(), this.destinationPath(), {
+      this._copyTpl();
+      this._copy();
+    }
+  }, {
+    key: '_copyTpl',
+    value: function _copyTpl() {
+      var passed = {
         redisPassword: this.props.iptRedisPassword,
         projectDescription: this.props.iptProjectDescription,
         projectName: this.props.iptProjectName
+      };
+
+      this.fs.copyTpl(this.templatePath(), this.destinationPath(), passed);
+
+      this.fs.copyTpl(this.templatePath('doc'), this.destinationPath('doc'), passed);
+    }
+  }, {
+    key: '_copy',
+    value: function _copy() {
+      var _self = this;
+      var dirsToCopy = ['.atom', '.gitlab', '.sublimetext', '.vscode', 'flow-typed', 'server', 'test', 'tool', 'task', 'client'];
+
+      (0, _forEach2['default'])(dirsToCopy, function (item) {
+        _self.fs.copy(_self.templatePath(item), _self.destinationPath(item));
       });
-      this.fs.copy(this.templatePath('.atom'), this.destinationPath('.atom'));
-      this.fs.copy(this.templatePath('.gitlab'), this.destinationPath('.gitlab'));
-      this.fs.copy(this.templatePath('.sublimetext'), this.destinationPath('.sublimetext'));
-      this.fs.copy(this.templatePath('.vscode'), this.destinationPath('.vscode'));
-      this.fs.copyTpl(this.templatePath('doc'), this.destinationPath('doc'), {
-        redisPassword: this.props.iptRedisPassword,
-        projectDescription: this.props.iptProjectDescription,
-        projectName: this.props.iptProjectName
-      });
-      this.fs.copy(this.templatePath('flow-typed'), this.destinationPath('flow-typed'));
-      this.fs.copy(this.templatePath('server'), this.destinationPath('server'));
-      this.fs.copy(this.templatePath('test'), this.destinationPath('test'));
-      this.fs.copy(this.templatePath('tool'), this.destinationPath('tool'));
-      this.fs.copy(this.templatePath('task'), this.destinationPath('task'));
-      this.fs.copy(this.templatePath('client'), this.destinationPath('client'));
     }
   }, {
     key: 'install',

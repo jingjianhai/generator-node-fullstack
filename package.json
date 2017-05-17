@@ -29,6 +29,7 @@
     "validate"
   ],
   "dependencies": {
+    "async": "^2.4.0",
     "chalk": "^1.1.3",
     "lodash": "^4.17.4",
     "yeoman-generator": "^1.1.1",
