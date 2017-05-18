@@ -57,7 +57,7 @@ gulp.task('serve', /*['copy', 'views', 'scripts', 'styles'], */() => {
     let bsOpts = {
       open: 'external',
       notify: false,
-      logPrefix: 'DANDAN.COM',
+      logPrefix: '<%-projectDomain.toUpperCase()%>',
       logConnections: true,
       server: {
         baseDir: 'dist',
@@ -105,7 +105,7 @@ gulp.task('serve-with-build:dist', ['build:dist'], () => {
     bs.init({
       open: 'external',
       notify: false,
-      logPrefix: 'DANDAN.COM',
+      logPrefix: '<%-projectDomain.toUpperCase()%>',
       logConnections: true,
       https: false,
       // httpModule: 'http2',
@@ -138,7 +138,7 @@ gulp.task('serve:dist', () => {
     bs.init({
       open: 'external',
       notify: false,
-      logPrefix: 'DANDAN.COM',
+      logPrefix: '<%-projectDomain.toUpperCase()%>',
       logConnections: true,
       https: false,
       // httpModule: 'http2',
@@ -163,7 +163,7 @@ gulp.task('serve:express', ['nodemon'], () => {
     bs.init({
       open: 'external',
       notify: false,
-      logPrefix: 'DANDAN.COM',
+      logPrefix: '<%-projectDomain.toUpperCase()%>',
       logConnections: true,
       https: false,
       // httpModule: 'http2',

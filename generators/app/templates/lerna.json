@@ -2,7 +2,7 @@
   "lerna": "2.0.0-rc.4",
   "version": "independent",
   "changelog": {
-    "repo": "dandan-repos/dandan.com",
+    "repo": "<%-projectNameEN%>-repos/<%-projectDomain%>",
     "labels": {
       "tag: new feature": ":rocket: New Feature",
       "tag: breaking change": ":boom: Breaking Change",

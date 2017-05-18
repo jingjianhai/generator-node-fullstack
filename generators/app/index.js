@@ -24,6 +24,10 @@ var _assign = require('lodash/assign');
 
 var _assign2 = _interopRequireDefault(_assign);
 
+var _merge = require('lodash/merge');
+
+var _merge2 = _interopRequireDefault(_merge);
+
 var _isEqual = require('lodash/isEqual');
 
 var _isEqual2 = _interopRequireDefault(_isEqual);
@@ -183,8 +187,20 @@ var NodeFullstack = function (_Generator) {
 
       var prompts = [{
         type: 'input',
-        name: 'iptProjectName',
-        message: '输入项目名称',
+        name: 'iptProjectNameCN',
+        message: '输入项目名称（中文）',
+        required: true,
+        'default': this.options.appname || this.appname
+      }, {
+        type: 'input',
+        name: 'iptProjectNameEN',
+        message: '输入项目名称（英文，小写、不可有空格、特殊字符）',
+        required: true,
+        'default': this.options.appname || this.appname
+      }, {
+        type: 'input',
+        name: 'iptProjectDomain',
+        message: '输入域名（若干配置会使用该域名唯一区分）',
         required: true,
         'default': this.options.appname || this.appname
       }, {
@@ -260,7 +276,9 @@ var NodeFullstack = function (_Generator) {
       var passed = {
         redisPassword: this.props.iptRedisPassword,
         projectDescription: this.props.iptProjectDescription,
-        projectName: this.props.iptProjectName,
+        projectNameCN: this.props.iptProjectNameCN,
+        projectNameEN: this.props.iptProjectNameEN,
+        projectDomain: this.props.iptProjectDomain,
         year: this.options.year,
         author: author
       };
@@ -268,6 +286,10 @@ var NodeFullstack = function (_Generator) {
       var _path = 'license/' + filename;
 
       this.fs.copyTpl(this.templatePath(_path), this.destinationPath(this.options.output), passed);
+
+      this.fs.copyTpl(_glob2['default'].sync(this.templatePath('server/**/*'), {
+        dot: true
+      }), this.destinationPath('server'), passed);
 
       this.fs.copyTpl(_glob2['default'].sync(this.templatePath('./*'), {
         dot: true,
@@ -285,9 +307,11 @@ var NodeFullstack = function (_Generator) {
       //     <%#'"' + item + '",\r'%>
       //   <%#}%>
       // <%#});%>
-      this.fs.copyTpl(_glob2['default'].sync(this.templatePath('task'), { dot: true }), this.destinationPath('task'), {
+      this.fs.copyTpl(_glob2['default'].sync(this.templatePath('task'), {
+        dot: true
+      }), this.destinationPath('task'), (0, _merge2['default'])({
         tinyPngApiKey: this.props.iptTinyPngApiKey.split(' ')
-      });
+      }, passed));
 
       if (!this.fs.exists(this.destinationPath('package.json'))) {
         return;
@@ -311,10 +335,12 @@ var NodeFullstack = function (_Generator) {
       var _this3 = this;
 
       var _self = this;
-      var dirsToCopy = ['.atom', '.gitlab', '.sublimetext', '.vscode', 'flow-typed', 'server', 'test', 'tool', 'client'];
+      var dirsToCopy = ['.atom', '.gitlab', '.sublimetext', '.vscode', 'flow-typed', 'test', 'tool', 'client'];
 
       (0, _forEach2['default'])(dirsToCopy, function (item) {
-        _self.fs.copy(_glob2['default'].sync(_this3.templatePath(item + '/**/*'), { dot: true }), _self.destinationPath(item));
+        _self.fs.copy(_glob2['default'].sync(_this3.templatePath(item + '/**/*'), {
+          dot: true
+        }), _self.destinationPath(item));
       });
     }
   }, {
@@ -327,6 +353,24 @@ var NodeFullstack = function (_Generator) {
         skipMessage: this.options['skip-install-message'],
         skipInstall: this.options['skip-install']
       });
+    }
+
+    /* eslint no-template-curly-in-string: 0 */
+    /* eslint no-unused-vars: 0 */
+
+  }, {
+    key: 'end',
+    value: function end() {
+      try {
+        var commandInstallDeps = _chalk2['default'].yellow.bold('npm install & bower install');
+
+        if (this.options['skip-install']) {
+          this.log('\n\u4F60\u7684\u9879\u76EE\u5DF2\u7ECF ' + _chalk2['default'].green.bold('成功生成') + ' \u3002\u75AF\u72C2\u5730\u7F16\u7A0B\u5427!');
+          this.log('\u8FD0\u884C ' + commandInstallDeps + ' \u5B89\u88C5\u6240\u6709\u4F9D\u8D56\u3002');
+        }
+      } catch (err) {
+        this.log('\n' + _chalk2['default'].bold.red('你的项目在生成时出错了。'));
+      }
     }
   }]);
 

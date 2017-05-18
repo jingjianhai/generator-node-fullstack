@@ -1,8 +1,8 @@
-# <%= projectName %> &middot; [![](https://i.github-camo.com/4e28b9f959b945ab207f9d727d5390f17fe7d3d2/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f576f726b666c6f772d676974666c6f772d2d6272616e6368696e672d2d6d6f64656c2d3831413143312e737667)](http://nvie.com/posts/a-successful-git-branching-model) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![](https://img.shields.io/badge/status-is%20developing-green.svg?style=flat)](#plugin) ![Developing](https://img.shields.io/badge/status-is%20developing-green.svg?style=flat)
+# <%= projectNameCN %> &middot; [![](https://i.github-camo.com/4e28b9f959b945ab207f9d727d5390f17fe7d3d2/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f576f726b666c6f772d676974666c6f772d2d6272616e6368696e672d2d6d6f64656c2d3831413143312e737667)](http://nvie.com/posts/a-successful-git-branching-model) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![](https://img.shields.io/badge/status-is%20developing-green.svg?style=flat)](#plugin) ![Developing](https://img.shields.io/badge/status-is%20developing-green.svg?style=flat)
 
 <%= projectDescription %>
 
-***你不一定会在这儿找到令你惊讶的东西，但是 `dandan.com` 需要你的热情！^_^***
+***你不一定会在这儿找到令你惊讶的东西，但是 `<%-projectDomain%>` 需要你的热情！^_^***
 
 
 
@@ -84,13 +84,13 @@
 
 ### 如何快速开始？
 
-如果你已经在自己的电脑上完全配置了 `dandan.com` 的 [*开发环境*](https://shimo.im/doc/911wq57rFPUEnnic/ '点击 · Click')，你可以克隆一份 [*"dandan.com" 主要镜像*](https://gitlab.com/dandan-repos/dandan.com '点击 · Click') 副本至指定文件目录：
+如果你已经在自己的电脑上完全配置了 `<%-projectDomain%>` 的 [*开发环境*](https://shimo.im/doc/911wq57rFPUEnnic/ '点击 · Click')，你可以克隆一份 [*"<%-projectDomain%>" 主要镜像*](https://gitlab.com/<%-projectNameEN%>-repos/<%-projectDomain%> '点击 · Click') 副本至指定文件目录：
 
 ```bash
-git clone https://gitlab.com/dandan-repos/dandan.com.git
+git clone https://gitlab.com/<%-projectNameEN%>-repos/<%-projectDomain%>.git
 ```
 
-克隆成功后，进入 `dandan.com` 文件夹，安装所有依赖：
+克隆成功后，进入 `<%-projectDomain%>` 文件夹，安装所有依赖：
 
 ```bash
 yarn install
@@ -127,9 +127,9 @@ root/                 # 工程根目录存放所有工程文件，诸如：packa
 ```
 
 
-### `dandan.com` 接下来要实现些什么?
+### `<%-projectDomain%>` 接下来要实现些什么?
 
-你可以在 [*Trello*](https://trello.com/b/K9JicM3n '点击 · Click') 上查看 `dandan.com` 的开发、计划等
+你可以在 [*Trello*](https://trello.com/b/K9JicM3n '点击 · Click') 上查看 `<%-projectDomain%>` 的开发、计划等
 动态，我们在 [*Trello*](https://trello.com/b/K9JicM3n '点击 · Click') 上头更多地会进行各种讨论、信息
 收集等活动。
 
@@ -137,7 +137,7 @@ root/                 # 工程根目录存放所有工程文件，诸如：packa
 
 如果你发现一些问题，无论是在什么样的情况下发现的这个问题，无论这个问题
 的性质如何（比如，某个问题只是需要在文档中以文字形式作相关提示），可以在
-[*Gitlab Issues*](https://gitlab.com/dandan-repos/dandan.com/issues '点击 · Click') 上查看是否存在相关特征描述的条目，如果不存在，我们欢迎你提出相关问题，我们一起讨论！
+[*Gitlab Issues*](https://gitlab.com/<%-projectNameEN%>-repos/<%-projectDomain%>/issues '点击 · Click') 上查看是否存在相关特征描述的条目，如果不存在，我们欢迎你提出相关问题，我们一起讨论！
 
 ### 我想帮忙一起写代码!!!
 

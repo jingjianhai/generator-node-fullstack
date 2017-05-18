@@ -10,7 +10,7 @@ redis-cli -h 127.0.0.1 -p 9686 -a <%- redisPassword %>
 yarn online
 ```
 
-如果已经存在 `<%= projectName %>` Node 服务实例，执行下述指令完全重载即可，
+如果已经存在 `<%-projectDomain%>` Node 服务实例，执行下述指令完全重载即可，
 ```bash
 yarn online-restart
 ```

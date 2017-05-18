@@ -7,6 +7,7 @@ import chalk from 'chalk';
 import yosay from 'yosay';
 import forEach from 'lodash/forEach';
 import assign from 'lodash/assign';
+import merge from 'lodash/merge';
 import isEqual from 'lodash/isEqual';
 import gitConfig from 'git-config';
 import glob from 'glob';
@@ -139,8 +140,20 @@ class NodeFullstack extends Generator {
 
     const prompts = [{
       type: 'input',
-      name: 'iptProjectName',
-      message: '输入项目名称',
+      name: 'iptProjectNameCN',
+      message: '输入项目名称（中文）',
+      required: true,
+      default: this.options.appname || this.appname
+    }, {
+      type: 'input',
+      name: 'iptProjectNameEN',
+      message: '输入项目名称（英文，小写、不可有空格、特殊字符）',
+      required: true,
+      default: this.options.appname || this.appname
+    }, {
+      type: 'input',
+      name: 'iptProjectDomain',
+      message: '输入域名（若干配置会使用该域名唯一区分）',
       required: true,
       default: this.options.appname || this.appname
     }, {
@@ -217,7 +230,9 @@ class NodeFullstack extends Generator {
     let passed = {
       redisPassword: this.props.iptRedisPassword,
       projectDescription: this.props.iptProjectDescription,
-      projectName: this.props.iptProjectName,
+      projectNameCN: this.props.iptProjectNameCN,
+      projectNameEN: this.props.iptProjectNameEN,
+      projectDomain: this.props.iptProjectDomain,
       year: this.options.year,
       author: author
     };
@@ -227,6 +242,16 @@ class NodeFullstack extends Generator {
     this.fs.copyTpl(
       this.templatePath(_path),
       this.destinationPath(this.options.output),
+      passed
+    );
+
+    this.fs.copyTpl(
+      glob.sync(
+        this.templatePath('server/**/*'), {
+          dot: true
+        }
+      ),
+      this.destinationPath('server'),
       passed
     );
 
@@ -257,17 +282,22 @@ class NodeFullstack extends Generator {
     //   <%#}%>
     // <%#});%>
     this.fs.copyTpl(
-      glob.sync(this.templatePath('task'), {dot: true}),
-      this.destinationPath('task'), {
+      glob.sync(this.templatePath('task'), {
+        dot: true
+      }),
+      this.destinationPath('task'), merge({
         tinyPngApiKey: this.props.iptTinyPngApiKey.split(' ')
-      }
+      }, passed)
     );
 
     if (!this.fs.exists(this.destinationPath('package.json'))) {
       return;
     }
 
-    let pkg = this.fs.readJSON(this.destinationPath('package.json'), {});
+    let pkg = this.fs.readJSON(
+      this.destinationPath('package.json'),
+      {}
+    );
     pkg.license = this.props.license;
 
     // We don't want users to publish their module to NPM if they copyrighted
@@ -277,7 +307,10 @@ class NodeFullstack extends Generator {
       pkg.private = true;
     }
 
-    this.fs.writeJSON(this.destinationPath('package.json'), pkg);
+    this.fs.writeJSON(
+      this.destinationPath('package.json'),
+      pkg
+    );
   }
 
   _copy() {
@@ -288,7 +321,6 @@ class NodeFullstack extends Generator {
       '.sublimetext',
       '.vscode',
       'flow-typed',
-      'server',
       'test',
       'tool',
       'client'
@@ -296,7 +328,9 @@ class NodeFullstack extends Generator {
 
     forEach(dirsToCopy, item => {
       _self.fs.copy(
-        glob.sync(this.templatePath(item + '/**/*'), {dot: true}),
+        glob.sync(this.templatePath(item + '/**/*'), {
+          dot: true
+        }),
         _self.destinationPath(item)
       );
     });
@@ -310,6 +344,26 @@ class NodeFullstack extends Generator {
       skipMessage: this.options['skip-install-message'],
       skipInstall: this.options['skip-install']
     });
+  }
+
+  /* eslint no-template-curly-in-string: 0 */
+  /* eslint no-unused-vars: 0 */
+  end() {
+    try {
+      let commandInstallDeps =
+        chalk.yellow.bold('npm install & bower install');
+
+      if (this.options['skip-install']) {
+        this.log(
+          `\n你的项目已经 ${chalk.green.bold('成功生成')} 。疯狂地编程吧!`
+        );
+        this.log(`运行 ${commandInstallDeps} 安装所有依赖。`);
+      }
+    } catch (err) {
+      this.log(
+        `\n${chalk.bold.red('你的项目在生成时出错了。')}`
+      );
+    }
   }
 }
 

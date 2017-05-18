@@ -1,6 +1,6 @@
 {
   "presets": [
-    ["env", {"modules": "umd"}],
+    ["env", {"modules": false}],
     "latest",
     "flow"
   ],
