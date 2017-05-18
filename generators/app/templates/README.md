@@ -1,4 +1,4 @@
-# <%= projectName %>
+# <%= projectName %> &middot; [![](https://i.github-camo.com/4e28b9f959b945ab207f9d727d5390f17fe7d3d2/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f576f726b666c6f772d676974666c6f772d2d6272616e6368696e672d2d6d6f64656c2d3831413143312e737667)](http://nvie.com/posts/a-successful-git-branching-model) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![](https://img.shields.io/badge/status-is%20developing-green.svg?style=flat)](#plugin) ![Developing](https://img.shields.io/badge/status-is%20developing-green.svg?style=flat)
 
 <%= projectDescription %>
 

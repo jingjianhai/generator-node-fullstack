@@ -1,4 +1,4 @@
-# NODE 全栈工程生成器 &middot; [![](https://img.shields.io/badge/status-is%20developing-green.svg?style=flat)](#plugin) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![build status](https://gitlab.com/dandan-repos/generator-node-fullstack/badges/master/build.svg)](https://gitlab.com/dandan-repos/generator-node-fullstack/commits/master)
+# NODE 全栈工程生成器 &middot; ![Developing](https://img.shields.io/badge/status-is%20developing-green.svg?style=flat) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![build status](https://gitlab.com/dandan-repos/generator-node-fullstack/badges/master/build.svg)](https://gitlab.com/dandan-repos/generator-node-fullstack/commits/master)  [![](https://i.github-camo.com/4e28b9f959b945ab207f9d727d5390f17fe7d3d2/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f576f726b666c6f772d676974666c6f772d2d6272616e6368696e672d2d6d6f64656c2d3831413143312e737667)](http://nvie.com/posts/a-successful-git-branching-model)
 
 这是一个 **面向前端工程师** 的 Node 全栈工程生成器。
 
