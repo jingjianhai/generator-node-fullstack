@@ -195,7 +195,9 @@ class NodeFullstack extends Generator {
       default: this.options.defaultLicense,
       when: !this.options.license ||
               isEqual(
-                licenses.find(x => isEqual(x.value, this.options.license)),
+                licenses.find(
+                  x => isEqual(x.value, this.options.license)
+                ),
                 undefined
               ),
       choices: licenses
