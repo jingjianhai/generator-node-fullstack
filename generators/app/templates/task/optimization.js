@@ -58,12 +58,11 @@ gulp.task('images', () =>
 );
 
 gulp.task('images:tinify', () => {
-  let key = {
-    'keyByiCloud': 'BTz4l057nCbIyIja6efgvGyqiEA47mVi',
-    'keyByGmail': '2OyI2M8ERL9tX5ZrPzSCeKNkNWL_RYnx'
-  };
+  let key = [
+    <%tinyPngApiKey.forEach(function(item, idx, ary) {%><%if(idx === ary.length-1) {%>    <%-'"' + item + '"'%><%} else if (idx === 0) {%><%-'"' + item + '",\r'%><%} else {%>    <%-'"' + item + '",\r'%><%}%><%});%>
+  ];
   return gulp.src('client/images/**/*')
-    .pipe(tinify(key.keyByGmail))
+    .pipe(tinify(key[0]))
     .pipe(gulp.dest('client/images'));
 });
 

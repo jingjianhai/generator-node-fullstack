@@ -1,5 +1,7 @@
 'use strict';
 
+/* jshint module: false */
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _yeomanGenerator = require('yeoman-generator');
@@ -80,7 +82,6 @@ var licenses = [{
 // TODO: 新功能，输入目前确认的开发者信息，用于填充 `.mailmap`、`package.json` 等文件
 // TODO: 新功能，设定不同环境下服务器、数据库等配置
 // TODO: 修复，生成的 `doc/deployment.md` 文件内密码字样出现转义现象
-// TODO: 新功能，设置 TinyPNG 密钥
 
 var NodeFullstack = function (_Generator) {
   _inherits(NodeFullstack, _Generator);
@@ -199,6 +200,11 @@ var NodeFullstack = function (_Generator) {
         message: '设置 redis 数据库的访问密码',
         'default': 'cnDaNdAn!@#$&13679'
       }, {
+        type: 'input',
+        name: 'iptTinyPngApiKey',
+        message: '设置 TinyPNG 开放接口密钥（用空格区分多个密钥）',
+        required: true
+      }, {
         name: 'name',
         message: '你的姓名',
         'default': this.options.name || this.gitc.user.name,
@@ -268,6 +274,19 @@ var NodeFullstack = function (_Generator) {
 
       this.fs.copyTpl(this.templatePath('doc'), this.destinationPath('doc'), passed);
 
+      // <%#tinyPngApiKey.forEach(function(item, idx, ary) {%>
+      //   <%#if(idx === ary.length-1) {%>
+      //     <%#'"' + item + '"'%>
+      //   <%#} else if (idx === 0) {%>
+      //     <%#'"' + item + '",\r'%>
+      //   <%#} else {%>
+      //     <%#'"' + item + '",\r'%>
+      //   <%#}%>
+      // <%#});%>
+      this.fs.copyTpl(_glob2['default'].sync(this.templatePath('task'), { dot: true }), this.destinationPath('task'), {
+        tinyPngApiKey: this.props.iptTinyPngApiKey.split(' ')
+      });
+
       if (!this.fs.exists(this.destinationPath('package.json'))) {
         return;
       }
@@ -290,7 +309,7 @@ var NodeFullstack = function (_Generator) {
       var _this3 = this;
 
       var _self = this;
-      var dirsToCopy = ['.atom', '.gitlab', '.sublimetext', '.vscode', 'flow-typed', 'server', 'test', 'tool', 'task', 'client'];
+      var dirsToCopy = ['.atom', '.gitlab', '.sublimetext', '.vscode', 'flow-typed', 'server', 'test', 'tool', 'client'];
 
       (0, _forEach2['default'])(dirsToCopy, function (item) {
         _self.fs.copy(_glob2['default'].sync(_this3.templatePath(item + '/**/*'), { dot: true }), _self.destinationPath(item));
@@ -312,5 +331,9 @@ var NodeFullstack = function (_Generator) {
   return NodeFullstack;
 }(_yeomanGenerator2['default']);
 
+/* jshint ignore:start */
+
+
 module.exports = NodeFullstack;
 module.exports.licenses = licenses;
+/* jshint ignore:end */

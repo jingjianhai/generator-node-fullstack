@@ -51,7 +51,6 @@ let licenses = [
 // TODO: 新功能，输入目前确认的开发者信息，用于填充 `.mailmap`、`package.json` 等文件
 // TODO: 新功能，设定不同环境下服务器、数据库等配置
 // TODO: 修复，生成的 `doc/deployment.md` 文件内密码字样出现转义现象
-// TODO: 新功能，设置 TinyPNG 密钥
 class NodeFullstack extends Generator {
   constructor(args, opts) {
     super(args, opts);
@@ -157,6 +156,11 @@ class NodeFullstack extends Generator {
       message: '设置 redis 数据库的访问密码',
       default: 'cnDaNdAn!@#$&13679'
     }, {
+      type: 'input',
+      name: 'iptTinyPngApiKey',
+      message: '设置 TinyPNG 开放接口密钥（用空格区分多个密钥）',
+      required: true
+    }, {
       name: 'name',
       message: '你的姓名',
       default: this.options.name || this.gitc.user.name,
@@ -239,6 +243,22 @@ class NodeFullstack extends Generator {
       passed
     );
 
+    // <%#tinyPngApiKey.forEach(function(item, idx, ary) {%>
+    //   <%#if(idx === ary.length-1) {%>
+    //     <%#'"' + item + '"'%>
+    //   <%#} else if (idx === 0) {%>
+    //     <%#'"' + item + '",\r'%>
+    //   <%#} else {%>
+    //     <%#'"' + item + '",\r'%>
+    //   <%#}%>
+    // <%#});%>
+    this.fs.copyTpl(
+      glob.sync(this.templatePath('task'), {dot: true}),
+      this.destinationPath('task'), {
+        tinyPngApiKey: this.props.iptTinyPngApiKey.split(' ')
+      }
+    );
+
     if (!this.fs.exists(this.destinationPath('package.json'))) {
       return;
     }
@@ -267,7 +287,6 @@ class NodeFullstack extends Generator {
       'server',
       'test',
       'tool',
-      'task',
       'client'
     ];
 
