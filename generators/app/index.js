@@ -81,7 +81,6 @@ var licenses = [{
 
 // TODO: 新功能，输入目前确认的开发者信息，用于填充 `.mailmap`、`package.json` 等文件
 // TODO: 新功能，设定不同环境下服务器、数据库等配置
-// TODO: 修复，生成的 `doc/deployment.md` 文件内密码字样出现转义现象
 
 var NodeFullstack = function (_Generator) {
   _inherits(NodeFullstack, _Generator);
