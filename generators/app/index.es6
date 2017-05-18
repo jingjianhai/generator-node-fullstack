@@ -1,5 +1,7 @@
 'use strict';
 
+/* jshint module: false */
+
 import Generator from 'yeoman-generator';
 import chalk from 'chalk';
 import yosay from 'yosay';
@@ -288,5 +290,7 @@ class NodeFullstack extends Generator {
   }
 }
 
+/* jshint ignore:start */
 module.exports = NodeFullstack;
 module.exports.licenses = licenses;
+/* jshint ignore:end */
