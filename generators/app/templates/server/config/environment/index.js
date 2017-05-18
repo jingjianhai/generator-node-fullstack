@@ -55,7 +55,7 @@ export default merge(
 
     // Secret for session, you will want to change this and make it an environment variable
     secrets: {
-      session: 'dandan-com'
+      session: '<%-projectDomain%>'
     },
 
     compatibility: {
@@ -75,7 +75,7 @@ export default merge(
     rds: {
       port: 9686,
       host: '127.0.0.1',
-      password: 'cnDaNdAn!@#$&13679'
+      password: '<%-redisPassword%>'
     }
   },
   require(`./${requiredProcessEnv('NODE_ENV')}.js`) || {}

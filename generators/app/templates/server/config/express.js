@@ -17,7 +17,7 @@ import connectRedis from 'connect-redis';
 import methodOverride from 'method-override';
 import cfg from './environment';
 
-// let debug = dgub('dandan.com:server');
+// let debug = dgub('<%-projectDomain%>:server');
 
 let app = express();
 let RedisStore = connectRedis(session);
