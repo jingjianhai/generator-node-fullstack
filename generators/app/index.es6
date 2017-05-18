@@ -48,7 +48,7 @@ let licenses = [
   }
 ];
 
-// TODO: 新功能，输入目前确认的开发者信息，用于填充 `.mailmap`、`package.json` 等文件
+// TODO: 新功能，输入目前确认的开发者信息，用于填充 `package.json` 等文件
 // TODO: 新功能，设定不同环境下服务器、数据库等配置
 class NodeFullstack extends Generator {
   constructor(args, opts) {
@@ -231,7 +231,12 @@ class NodeFullstack extends Generator {
     );
 
     this.fs.copyTpl(
-      glob.sync(this.templatePath('./*'), {dot: true, nodir: true}),
+      glob.sync(
+        this.templatePath('./*'), {
+          dot: true,
+          nodir: true
+        }
+      ),
       this.destinationPath(),
       passed
     );

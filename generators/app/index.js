@@ -79,7 +79,7 @@ var licenses = [{
   value: 'nolicense'
 }];
 
-// TODO: 新功能，输入目前确认的开发者信息，用于填充 `.mailmap`、`package.json` 等文件
+// TODO: 新功能，输入目前确认的开发者信息，用于填充 `package.json` 等文件
 // TODO: 新功能，设定不同环境下服务器、数据库等配置
 
 var NodeFullstack = function (_Generator) {
@@ -269,7 +269,10 @@ var NodeFullstack = function (_Generator) {
 
       this.fs.copyTpl(this.templatePath(_path), this.destinationPath(this.options.output), passed);
 
-      this.fs.copyTpl(_glob2['default'].sync(this.templatePath('./*'), { dot: true, nodir: true }), this.destinationPath(), passed);
+      this.fs.copyTpl(_glob2['default'].sync(this.templatePath('./*'), {
+        dot: true,
+        nodir: true
+      }), this.destinationPath(), passed);
 
       this.fs.copyTpl(this.templatePath('doc'), this.destinationPath('doc'), passed);
 
