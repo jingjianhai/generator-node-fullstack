@@ -286,6 +286,7 @@ doc/scss-lint-report.md
 doc/scss-lint-report.json
 doc/scss-lint-report.xml
 
+*.har
 *.tar.gz
 pm2-error.txt
 pm2-log.txt
@@ -294,3 +295,8 @@ vendor-manifest.json
 vendor.dll.js
 data
 doc/deps.size.txt
+
+licenses-dev.csv
+licenses.csv
+
+.yarnclean
