@@ -1,6 +1,11 @@
 # NODE 全栈工程生成器 &middot; ![Developing](https://img.shields.io/badge/status-is%20developing-green.svg?style=flat) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![build status](https://gitlab.com/dandan-repos/generator-node-fullstack/badges/master/build.svg)](https://gitlab.com/dandan-repos/generator-node-fullstack/commits/master)  [![](https://i.github-camo.com/4e28b9f959b945ab207f9d727d5390f17fe7d3d2/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f576f726b666c6f772d676974666c6f772d2d6272616e6368696e672d2d6d6f64656c2d3831413143312e737667)](http://nvie.com/posts/a-successful-git-branching-model)
 
-这是一个 **面向前端工程师** 的 Node 全栈工程生成器。
+这是一个 **面向前端工程师** 的 Node 全栈工程生成器，主要包括以下几个主要特点，
+- 离线优先；
+- 结构优先，不包含 `React`、`Angular`、`bootstrap`、`foundation` 等 `web` 前端 `css`、`js` 框架；
+- 高质量第三方底层组件优先；
+- 全栈遵循 MVC 设计模式；
+- 基于 `Node`、`Express`、`Redis`、`MongoDB` 等服务器端技术。
 
 ***你不一定会在这儿找到令你惊讶的东西，但是 `dandan.com` 需要你的热情！^_^***
 
