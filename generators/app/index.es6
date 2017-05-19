@@ -49,8 +49,8 @@ let licenses = [
   }
 ];
 
-// TODO: 新功能，输入目前确认的开发者信息，用于填充 `package.json` 等文件
-// TODO: 新功能，设定不同环境下服务器、数据库等配置
+// TODO: 新功能，设定不同环境下静态资源服务器、开放接口服务器、数据库等配置
+// TODO: 新功能，设定浏览器兼容性
 class NodeFullstack extends Generator {
   constructor(args, opts) {
     super(args, opts);
@@ -292,6 +292,16 @@ class NodeFullstack extends Generator {
       }, passed)
     );
 
+    this.fs.copyTpl(
+      glob.sync(
+        this.templatePath('client/**/*'), {
+          dot: true
+        }
+      ),
+      this.destinationPath('client'),
+      passed
+    );
+
     if (!this.fs.exists(this.destinationPath('package.json'))) {
       return;
     }
@@ -325,16 +335,25 @@ class NodeFullstack extends Generator {
       'flow-typed',
       'test',
       'tool',
-      'client'
+      'vendor'
     ];
 
     forEach(dirsToCopy, item => {
-      _self.fs.copy(
-        glob.sync(this.templatePath(item + '/**/*'), {
-          dot: true
-        }),
-        _self.destinationPath(item)
-      );
+      if (isEqual(item, 'vendor')) {
+        _self.fs.copy(
+          glob.sync(this.templatePath(item + '/**/*'), {
+            dot: true
+          }),
+          _self.destinationPath('client/' + item)
+        );
+      } else {
+        _self.fs.copy(
+          glob.sync(this.templatePath(item + '/**/*'), {
+            dot: true
+          }),
+          _self.destinationPath(item)
+        );
+      }
     });
   }
 

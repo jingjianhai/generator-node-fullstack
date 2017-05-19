@@ -83,8 +83,8 @@ var licenses = [{
   value: 'nolicense'
 }];
 
-// TODO: 新功能，输入目前确认的开发者信息，用于填充 `package.json` 等文件
-// TODO: 新功能，设定不同环境下服务器、数据库等配置
+// TODO: 新功能，设定不同环境下静态资源服务器、开放接口服务器、数据库等配置
+// TODO: 新功能，设定浏览器兼容性
 
 var NodeFullstack = function (_Generator) {
   _inherits(NodeFullstack, _Generator);
@@ -313,6 +313,10 @@ var NodeFullstack = function (_Generator) {
         tinyPngApiKey: this.props.iptTinyPngApiKey.split(' ')
       }, passed));
 
+      this.fs.copyTpl(_glob2['default'].sync(this.templatePath('client/**/*'), {
+        dot: true
+      }), this.destinationPath('client'), passed);
+
       if (!this.fs.exists(this.destinationPath('package.json'))) {
         return;
       }
@@ -335,12 +339,18 @@ var NodeFullstack = function (_Generator) {
       var _this3 = this;
 
       var _self = this;
-      var dirsToCopy = ['.atom', '.gitlab', '.sublimetext', '.vscode', 'flow-typed', 'test', 'tool', 'client'];
+      var dirsToCopy = ['.atom', '.gitlab', '.sublimetext', '.vscode', 'flow-typed', 'test', 'tool', 'vendor'];
 
       (0, _forEach2['default'])(dirsToCopy, function (item) {
-        _self.fs.copy(_glob2['default'].sync(_this3.templatePath(item + '/**/*'), {
-          dot: true
-        }), _self.destinationPath(item));
+        if ((0, _isEqual2['default'])(item, 'vendor')) {
+          _self.fs.copy(_glob2['default'].sync(_this3.templatePath(item + '/**/*'), {
+            dot: true
+          }), _self.destinationPath('client/' + item));
+        } else {
+          _self.fs.copy(_glob2['default'].sync(_this3.templatePath(item + '/**/*'), {
+            dot: true
+          }), _self.destinationPath(item));
+        }
       });
     }
   }, {
