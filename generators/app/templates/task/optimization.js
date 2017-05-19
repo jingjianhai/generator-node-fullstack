@@ -186,6 +186,7 @@ gulp.task('manifest', () =>
       'styles/**/*.br',
       'styles/main.css.map',
       'styles/main-*.css',
+      'styles/bundle.css',
       'scripts/main.js',
       'scripts/**/*.gz',
       'scripts/**/*.br',
@@ -205,7 +206,8 @@ gulp.task('manifest', () =>
       'mime.types',
       'nginx.conf',
       '**/*/main.*',
-      '**/*/bundle.*',
+      '**/*/bundle.head.*',
+      '**/*/bundle.body.*',
       'rev-manifest.json'
     ],
   }))

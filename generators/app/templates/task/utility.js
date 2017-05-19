@@ -87,12 +87,21 @@ gulp.task('copy:static', () => {
 });
 
 gulp.task('replace:api', () => {
-  gulp.src('dist/scripts/bundle.js')
+  gulp.src('dist/scripts/bundle.body.js')
   .pipe($.replace(
     'protocol://host',
     process.env.APIHOST
   ))
   .pipe(gulp.dest('dist/scripts'));
+});
+
+gulp.task('replace:prerender', () => {
+  gulp.src('dist/*.html')
+  .pipe($.replace(
+    '//domain-placeholder.com',
+    process.env.APIHOST
+  ))
+  .pipe(gulp.dest('dist'));
 });
 
 gulp.task('replace:jquery-ui', () =>

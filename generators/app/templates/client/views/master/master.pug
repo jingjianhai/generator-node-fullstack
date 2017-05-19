@@ -10,6 +10,10 @@ mixin ie (sCondition, eCondition)
 mixin doc
   head
     meta(charset='utf-8')
+
+    // Pre-Resolve DNS Snippet
+    include ../abstract/pre.resolve.dns.pug
+
     base(href='/', target='_blank')
 
     meta(name='viewport', content='width=1200, initial-scale=1.0, maximum-scale=1')
@@ -19,15 +23,15 @@ mixin doc
     meta(http-equiv='cleartype', content='on')
     meta(name='msapplication-tap-highlight', content='no')
 
-    meta(name='url', content='http://www.dandan.com/')
-    meta(name='identifier-URL', content='http://www.dandan.com/')
-    meta(name='linkage', content='http://www.dandan.com/')
-    link(rel='canonical', href='http://www.dandan.com/')
+    //- meta(name='url', content='http://<%- projectDomain %>/')
+    //- meta(name='identifier-URL', content='http://<%- projectDomain %>/')
+    //- meta(name='linkage', content='http://<%- projectDomain %>/')
+    //- link(rel='canonical', href='http://<%- projectDomain %>/')
 
     block title
 
-    meta(name='keywords', content='蛋蛋网')
-    meta(name='description', content='智慧农业云平台')
+    //- meta(name='keywords', content='<%- projectNameCN %>')
+    //- meta(name='description', content='<%- projectDescription %>')
 
     meta(http-equiv='cache-control', content='public')
     meta(http-equiv='expires', content='max-age')
@@ -58,8 +62,18 @@ mixin doc
     //-     link(rel=val.rel, type=val.type, href='images/favicon/' + val.href)
     link(rel='icon', type='image/x-icon', href='images/favicon/favicon.ico')
 
+    // build:js scripts/bundle.head.js
     script(async, src='vendor/modernizr-custom/3.5.0/modernizr.js')
-    link(rel='preload', href='vendor/modernizr-custom/3.5.0/modernizr.js', as='script')
+
+    //- https://github.com/aFarkas/lazysizes#tip-wherehow-to-include-lazysizes
+    script(async, src='vendor/lazysizes/lazysizes.min.js')
+    // endbuild
+
+    if env === 'production'
+      link(rel='preload', href='scripts/bundle.head.js', as='script')
+
+    if env === 'production'
+      link(rel='prerender',href='http://domain-placeholder.com/user.login.html')
 
     block private-head-javascript
 
@@ -69,7 +83,9 @@ mixin doc
     if dll === 'true'
       script(src='scripts/dll/vendor.dll.js')
 
-    // build:js scripts/bundle.js
+    block private-body-javascript
+
+    // build:js scripts/bundle.body.js
     script(src='vendor/jquery3x/dist/jquery.min.js')
 
     if env === 'development'
@@ -80,14 +96,13 @@ mixin doc
     script(src='vendor/jquery-validation/1.16.0/jquery.validate.min.js')
     script(src='vendor/jquery-validation/1.16.0/additional-methods.min.js')
     script(src='vendor/select2/4.0.3/select2.min.js')
-    script(src='vendor/lazysizes/lazysizes.min.js')
     script(src='vendor/icheck/1.0.2/icheck.min.js')
     script(src='vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js')
     script(src='scripts/main.js')
     // endbuild
 
     if env === 'production'
-      link(rel='preload', href='scripts/bundle.js', as='script')
+      link(rel='preload', href='scripts/bundle.body.js', as='script')
 
 doctype html
 

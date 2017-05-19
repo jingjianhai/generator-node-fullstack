@@ -17,7 +17,7 @@ gulp.task('build:dist', (cb) => {
       // 预处理
       ['styles', 'views', 'scripts', 'images:tinify'],
       ['html', 'images'],
-      ['replace:api', 'replace:jquery-ui'],
+      ['replace:api', 'replace:prerender', 'replace:jquery-ui'],
       ['base64', 'scripts:tinify'],
       'revreplace',
       'manifest',
@@ -36,7 +36,7 @@ gulp.task('build:dist', (cb) => {
       // 预处理
       ['styles', 'views', 'scripts', 'images:tinify'],
       ['html', 'images', 'scripts:tinify'],
-      ['replace:api', 'replace:jquery-ui'],
+      ['replace:api', 'replace:prerender', 'replace:jquery-ui'],
       ['base64', 'scripts:tinify'],
       'revreplace',
       'manifest',
