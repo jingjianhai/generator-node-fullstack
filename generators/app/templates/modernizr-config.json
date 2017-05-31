@@ -1,0 +1,19 @@
+{
+  "classPrefix": "d-",
+  "feature-detects": [
+    "applicationcache",
+    "canvas",
+    "canvas/blending",
+    "canvas/todataurl",
+    "canvas/winding",
+    "canvastext",
+    "cookies",
+    "cors",
+    "css/borderimage",
+    "indexeddb",
+    "indexeddbblob",
+    "storage/localstorage",
+    "storage/sessionstorage",
+    "storage/websqldatabase"
+  ]
+}
