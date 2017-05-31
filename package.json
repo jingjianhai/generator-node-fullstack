@@ -1,6 +1,6 @@
 {
   "name": "generator-node-fullstack",
-  "description": "Node 全栈生成器。专注于非单页 Web 应用。离线、结构、第三方底层组件优先，主要基于 Node、Express、Redis、MongoDB 等服务器端技术。",
+  "description": "Node 全栈工程生成器。专注于非单页 Web 应用。离线、结构、第三方底层组件优先，不包含 React、Angular、Twitter Bootstrap、Zurb Foundation 等 web 前端 css、js 框架。主要基于 Node、Express、Redis、MongoDB 等技术。",
   "version": "0.0.0",
   "files": [
     "generators"
