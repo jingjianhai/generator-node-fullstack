@@ -1,4 +1,8 @@
-# NODE 全栈工程生成器 &middot; ![Developing](https://img.shields.io/badge/status-is%20developing-green.svg?style=flat) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)  [![](https://i.github-camo.com/4e28b9f959b945ab207f9d727d5390f17fe7d3d2/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f576f726b666c6f772d676974666c6f772d2d6272616e6368696e672d2d6d6f64656c2d3831413143312e737667)](http://nvie.com/posts/a-successful-git-branching-model)
+[![codebeat badge](https://codebeat.co/badges/3de4b956-7b4b-470d-9712-683c812718ea)](https://codebeat.co/projects/github-com-huso-io-generator-node-fullstack-master) ![Developing](https://img.shields.io/badge/status-is%20developing-green.svg?style=flat) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md#pull-requests) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)  [![](https://i.github-camo.com/4e28b9f959b945ab207f9d727d5390f17fe7d3d2/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f576f726b666c6f772d676974666c6f772d2d6272616e6368696e672d2d6d6f64656c2d3831413143312e737667)](http://nvie.com/posts/a-successful-git-branching-model)
+
+
+
+# [NODE 全栈工程生成器](https://git.io/vHBfO)
 
 这是一个 **面向前端工程师** 的 Node 全栈工程生成器，主要包括以下几个主要特点，
 - 离线优先；
@@ -29,7 +33,7 @@
 
 
 
-### 工程介绍
+### 生成器参数
 
 - `--skip-welcome-message`
 - `--skip-install-message`
