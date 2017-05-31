@@ -1,7 +1,7 @@
 {
   "analytics": true,
   "directory": "./client/vendor",
-  "timeout": 6000,
+  "timeout": 8888,
   "color": true,
   "interactive": true,
   "json": "bower.json"
