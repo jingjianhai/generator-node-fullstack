@@ -22,7 +22,6 @@
 - 生成器参数
 - 有效的生成器
 - 工程介绍
-- 待实现
 - 技术栈
 - 浏览器支持
 - 灵感
@@ -81,23 +80,6 @@
 
 
 
-### 待实现
-
-- [ ] 通过服务工作线程 & HTML5 应用缓存两者融合离线应用的优点
-- [ ] E2E 测试
-- [ ] 兼容性测试
-- [ ] 真机测试
-- [ ] 不同网络类型下访问效率测试
-- [ ] WebPagetest 测试
-- [ ] sitespeed.io 测试
-- [ ] Lighthouse 测试（待定）
-- [ ] 实时更新用户界面
-- [ ] 实时重载 NODE 服务
-- [ ] 较好地支持全栈开发
-- [ ] 生成器：新建页面
-
-
-
 ### 技术栈
 
 下述为约定好的主要技术栈，
@@ -107,6 +89,7 @@
 - [ ] Redis
 - [ ] MongoDB
 - [ ] PM2
+- [ ] Browsersync
 - [ ] Gulp
 - [ ] Webpack
 - [ ] Mocha
@@ -116,22 +99,11 @@
 - [ ] Flowtype
 - [ ] Pug
 - [ ] Sass
-- [ ] Socket.io
-- [ ] Animate.css
 - [ ] Async.js
 - [ ] Lodash.js
 - [ ] Immutable.js
 - [ ] PouchDB
-- [ ] jQyery
-- [ ] jQyery UI - Datepicker
-- [ ] jQuery Validation
-- [ ] Nicescroll.js
-- [ ] Lazysizes.js
-- [ ] iCheck
-- [ ] Select2
-- [ ] 百度地图
-- [ ] Modernizr.js
-- [ ] Browsersync
+- [ ] ...
 
 
 
