@@ -80,85 +80,99 @@ gulp.task('scripts:tinify', () =>
     .pipe(gulp.dest('dist/scripts'))
 );
 
+let extsStaticResources = () => {
+  let txtExts = 'txt|xml|html|css|js';
+  let imgExts = 'png|jpg|jpeg|gif|svg|svgz|ico';
+  let fontExts = 'eot|ttf|woff|woff2';
+
+  return txtExts + '|' + imgExts + '|' + fontExts;
+}
+
+let gzipOpts = {
+  'append': true,
+  'threshold': '1kb',
+  'gzipOptions': {
+    'level': 9,
+    'memLevel': 1,
+  },
+};
+
 // Generate gzip type static resources
-gulp.task('gzip:dist', () => {
-  let txtExts = 'txt|xml|html|css|js';
-  let imgExts = 'png|jpg|jpeg|gif|svg|svgz|ico';
-  let fontExts = 'eot|ttf|woff|woff2';
-  let exts = txtExts + '|' + imgExts + '|' + fontExts;
-
-  let gzipOpts = {
-    'append': true,
-    'threshold': '1kb',
-    'gzipOptions': {
-      'level': 9,
-      'memLevel': 1,
-    },
-  };
-
-  return gulp.src('dist/**/*.+(' + exts + ')')
+gulp.task('gzip:dist', () =>
+  gulp.src('dist/**/*.+(' + extsStaticResources() + ')')
     .pipe($.gziper(gzipOpts))
-    .pipe(gulp.dest('dist'));
-});
+    .pipe(gulp.dest('dist'))
+);
 
-gulp.task('gzip:static', () => {
-  let txtExts = 'txt|xml|html|css|js';
-  let imgExts = 'png|jpg|jpeg|gif|svg|svgz|ico';
-  let fontExts = 'eot|ttf|woff|woff2';
-  let exts = txtExts + '|' + imgExts + '|' + fontExts;
+gulp.task('gzip:static', () =>
+  gulp.src('static/**/*.+(' + extsStaticResources() + ')')
+      .pipe($.gziper(gzipOpts))
+      .pipe(gulp.dest('static'))
+);
 
-  let gzipOpts = {
-    'append': true,
-    'threshold': '1kb',
-    'gzipOptions': {
-      'level': 9,
-      'memLevel': 1,
-    },
-  };
-
-  return gulp.src('static/**/*.+(' + exts + ')')
-    .pipe($.gziper(gzipOpts))
-    .pipe(gulp.dest('static'));
-});
+let brotliOpts = {
+  extension: 'br',
+  skipLarger: true,
+  mode: 0,
+  quality: 11,
+  lgblock: 0
+};
 
 // Generate brotli type static resources
-gulp.task('brotli:dist', () => {
-  let txtExts = 'txt|xml|html|css|js';
-  let imgExts = 'png|jpg|jpeg|gif|svg|svgz|ico';
-  let fontExts = 'eot|ttf|woff|woff2';
-  let exts = txtExts + '|' + imgExts + '|' + fontExts;
+gulp.task('brotli:dist', () =>
+  gulp.src('dist/**/*.+(' + extsStaticResources() + ')')
+      .pipe($.brotli.compress(brotliOpts))
+      .pipe(gulp.dest('dist'))
+);
 
-  let brotliOpts = {
-    extension: 'br',
-    skipLarger: true,
-    mode: 0,
-    quality: 11,
-    lgblock: 0
-  };
+gulp.task('brotli:static', () =>
+  gulp.src('static/**/*.+(' + extsStaticResources() + ')')
+      .pipe($.brotli.compress(brotliOpts))
+      .pipe(gulp.dest('static'))
+);
 
-  return gulp.src('dist/**/*.+(' + exts + ')')
-    .pipe($.brotli.compress(brotliOpts))
-    .pipe(gulp.dest('dist'));
-});
-
-gulp.task('brotli:static', () => {
-  let txtExts = 'txt|xml|html|css|js';
-  let imgExts = 'png|jpg|jpeg|gif|svg|svgz|ico';
-  let fontExts = 'eot|ttf|woff|woff2';
-  let exts = txtExts + '|' + imgExts + '|' + fontExts;
-
-  let brotliOpts = {
-    extension: 'br',
-    skipLarger: true,
-    mode: 0,
-    quality: 11,
-    lgblock: 0
-  };
-
-  return gulp.src('static/**/*.+(' + exts + ')')
-    .pipe($.brotli.compress(brotliOpts))
-    .pipe(gulp.dest('static'));
-});
+let manifestExclude = [
+  '*.html',
+  '*.txt',
+  '*.gz',
+  '*.br',
+  'manifest.appcache',
+  'vendor/**/*',
+  'views/**/*',
+  'robots.txt',
+  'main.css',
+  'main-*.css',
+  'bundle.*',
+  'bundle-*.css',
+  'styles/main.css',
+  'styles/**/*.gz',
+  'styles/**/*.br',
+  'styles/main.css.map',
+  'styles/main-*.css',
+  'styles/bundle.css',
+  'scripts/main.js',
+  'scripts/**/*.gz',
+  'scripts/**/*.br',
+  'scripts/main.js.map',
+  'scripts/main-*.js',
+  'scripts/init-*.js',
+  'scripts/dll/**/*',
+  'scripts/config/*',
+  'scripts/init.js',
+  'fonts/iconfont.*',
+  'fonts/**/*.gz',
+  'fonts/**/*.br',
+  'fonts/bootstrap/*',
+  'images/**/*.gz',
+  'images/**/*.br',
+  'images/favicon/*',
+  'mime.types',
+  'nginx.conf',
+  '**/*/main.*',
+  '**/*/bundle.head.*',
+  '**/*/bundle.body.*',
+  'rev-manifest.json'
+];
 
 // Generate application cache
 gulp.task('manifest', () =>
@@ -168,48 +182,7 @@ gulp.task('manifest', () =>
     preferOnline: true,
     network: ['*'],
     filename: 'manifest.appcache',
-    exclude: [
-      '*.html',
-      '*.txt',
-      '*.gz',
-      '*.br',
-      'manifest.appcache',
-      'vendor/**/*',
-      'views/**/*',
-      'robots.txt',
-      'main.css',
-      'main-*.css',
-      'bundle.*',
-      'bundle-*.css',
-      'styles/main.css',
-      'styles/**/*.gz',
-      'styles/**/*.br',
-      'styles/main.css.map',
-      'styles/main-*.css',
-      'styles/bundle.css',
-      'scripts/main.js',
-      'scripts/**/*.gz',
-      'scripts/**/*.br',
-      'scripts/main.js.map',
-      'scripts/main-*.js',
-      'scripts/init-*.js',
-      'scripts/dll/**/*',
-      'scripts/config/*',
-      'scripts/init.js',
-      'fonts/iconfont.*',
-      'fonts/**/*.gz',
-      'fonts/**/*.br',
-      'fonts/bootstrap/*',
-      'images/**/*.gz',
-      'images/**/*.br',
-      'images/favicon/*',
-      'mime.types',
-      'nginx.conf',
-      '**/*/main.*',
-      '**/*/bundle.head.*',
-      '**/*/bundle.body.*',
-      'rev-manifest.json'
-    ],
+    exclude: manifestExclude,
   }))
   .pipe(gulp.dest('dist'))
 );
@@ -232,9 +205,8 @@ gulp.task('fingerprint', () => {
   let txtExts = 'txt,xml,css,js,json';
   let imgExts = 'png,jpg,jpeg,gif,svg,svgz,ico';
   let fontExts = 'eot,ttf,woff,woff2';
-  let exts = txtExts + ',' + imgExts + ',' + fontExts;
 
-  return gulp.src('dist/**/*.{' + exts + '}')
+  return gulp.src('dist/**/*.{' + txtExts + ',' + imgExts + ',' + fontExts + '}')
     .pipe($.rev())
     .pipe($.revCssUrl())
     .pipe(gulp.dest('dist'))
