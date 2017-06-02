@@ -4,6 +4,7 @@ import gulp from 'gulp';
 import del from 'del';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import mrgStrm from 'merge-stream';
+import runSequence from 'run-sequence';
 
 let $ = gulpLoadPlugins({
   DEBUG: false,
@@ -47,8 +48,49 @@ gulp.task('tar', () => {
   .pipe(gulp.dest('./'));
 });
 
-// Copy all files at the root level (app)
-gulp.task('copy', () => {
+gulp.task('copy:static', () => {
+  let txtExts = 'txt|xml|html|css|js|json|yml';
+  let imgExts = 'png|jpg|jpeg|gif|svg|svgz|ico';
+  let fontExts = 'eot|ttf|woff|woff2';
+
+  let exts = txtExts + '|' + imgExts + '|' + fontExts + '|appcache';
+
+  return gulp.src(
+    'dist/**/*.+(' + exts + ')'
+  )
+  .pipe(gulp.dest('static'));
+});
+
+gulp.task('copy:vendor', () => {
+  let copy_lazysizes = gulp.src([
+    'node_modules/lazysizes/**/*',
+  ])
+  .pipe(gulp.dest('client/vendor/lazysizes'));
+
+  let copy_bootstrapSass = gulp.src([
+    'node_modules/bootstrap-sass/**/*',
+  ])
+  .pipe(gulp.dest('client/vendor/bootstrap-sass'));
+
+  let copy_jqueryui = gulp.src([
+    'node_modules/jqueryui/**/*',
+  ])
+  .pipe(gulp.dest('client/vendor/jqueryui'));
+
+  let copy_jquery = gulp.src([
+    'node_modules/jquery/**/*',
+  ])
+  .pipe(gulp.dest('client/vendor/jquery'));
+
+  return mrgStrm(
+    copy_lazysizes,
+    copy_bootstrapSass,
+    copy_jqueryui,
+    copy_jquery
+  );
+});
+
+gulp.task('copy:native-static', () => {
   let src1 = gulp.src([
     'client/**',
     'node_modules/apache-server-configs/dist/.htaccess',
@@ -73,17 +115,8 @@ gulp.task('copy', () => {
   return mrgStrm(src1, src2);
 });
 
-gulp.task('copy:static', () => {
-  let txtExts = 'txt|xml|html|css|js|json|yml';
-  let imgExts = 'png|jpg|jpeg|gif|svg|svgz|ico';
-  let fontExts = 'eot|ttf|woff|woff2';
-
-  let exts = txtExts + '|' + imgExts + '|' + fontExts + '|appcache';
-
-  return gulp.src(
-    'dist/**/*.+(' + exts + ')'
-  )
-  .pipe(gulp.dest('static'));
+gulp.task('copy', (cb) => {
+  return runSequence('copy:native-static', 'copy:vendor', cb);
 });
 
 gulp.task('replace:api', () => {
