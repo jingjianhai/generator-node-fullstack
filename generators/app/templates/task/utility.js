@@ -61,34 +61,29 @@ gulp.task('copy:static', () => {
   .pipe(gulp.dest('static'));
 });
 
-gulp.task('copy:vendor', () => {
-  let copy_lazysizes = gulp.src([
-    'node_modules/lazysizes/**/*',
-  ])
-  .pipe(gulp.dest('client/vendor/lazysizes'));
+gulp.task('copy:vendor', () =>
+  mrgStrm(
+    gulp.src([
+      'node_modules/lazysizes/**/*',
+    ])
+    .pipe(gulp.dest('client/vendor/lazysizes')),
 
-  let copy_bootstrapSass = gulp.src([
-    'node_modules/bootstrap-sass/**/*',
-  ])
-  .pipe(gulp.dest('client/vendor/bootstrap-sass'));
+    gulp.src([
+      'node_modules/bootstrap-sass/**/*',
+    ])
+    .pipe(gulp.dest('client/vendor/bootstrap-sass')),
 
-  let copy_jqueryui = gulp.src([
-    'node_modules/jqueryui/**/*',
-  ])
-  .pipe(gulp.dest('client/vendor/jqueryui'));
+    gulp.src([
+      'node_modules/jqueryui/**/*',
+    ])
+    .pipe(gulp.dest('client/vendor/jqueryui')),
 
-  let copy_jquery = gulp.src([
-    'node_modules/jquery/**/*',
-  ])
-  .pipe(gulp.dest('client/vendor/jquery'));
-
-  return mrgStrm(
-    copy_lazysizes,
-    copy_bootstrapSass,
-    copy_jqueryui,
-    copy_jquery
-  );
-});
+    gulp.src([
+      'node_modules/jquery/**/*',
+    ])
+    .pipe(gulp.dest('client/vendor/jquery'))
+  )
+);
 
 gulp.task('copy:native-static', () => {
   let src1 = gulp.src([
