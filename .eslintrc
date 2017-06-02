@@ -17,7 +17,7 @@
   },
   "rules": {
     "no-warning-comments": 0,
-    "no-console": ["error", { allow: ["log", "error"] }],
+    "no-console": ["error", { "allow": ["log", "error"] }],
     "no-undef": 0,
     "flowtype/no-types-missing-file-annotation": 0
   }

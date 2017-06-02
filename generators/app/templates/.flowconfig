@@ -21,4 +21,4 @@ module.ignore_non_literal_requires=true
 munge_underscores=true
 
 [version]
-0.46.0
+0.47.0

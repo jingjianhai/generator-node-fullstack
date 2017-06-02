@@ -58,6 +58,7 @@
     "eslint-config-xo-space": "^0.16.0",
     "eslint-plugin-flowtype": "^2.34.0",
     "flow-bin": "^0.47.0",
+    "jscs": "^3.0.7",
     "jshint": "^2.9.4",
     "license-checker": "^11.0.0",
     "nsp": "^2.6.3",
@@ -72,7 +73,7 @@
     "npm": ">=5.0.0",
     "yarn": ">=0.24.6"
   },
-  "author": [
+  "authors": [
     "iTonyYo <ceo@holaever.com> (https://itonyyo.com)"
   ],
   "homepage": "https://github.com/huso-io/generator-node-fullstack",
