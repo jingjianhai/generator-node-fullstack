@@ -1,26 +1,5 @@
 #!/bin/sh
 
-yarn global remove \
-  autoprefixer \
-  babel-cli \
-  bower \
-  browser-sync \
-  caniuse-cmd \
-  diff-so-fancy \
-  eslint \
-  gulp \
-  jscs \
-  lerna \
-  mocha \
-  node-gyp \
-  node-pre-gyp \
-  parker \
-  pm2 \
-  postcss-cli \
-  pug-cli \
-  space-hogs \
-  vtop \
-
 apm uninstall --no-confirm \
   activate-power-mode@1.4.0 \
   advanced-open-file@0.16.6 \
@@ -91,3 +70,5 @@ apm uninstall --no-confirm \
   todo-show@1.11.0 \
   tool-bar@1.1.0 \
   travis-ci-status@1.3.1 \
+
+echo "卸载完成。"
