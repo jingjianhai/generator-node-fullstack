@@ -28,12 +28,12 @@ describe('generator-dandan-com:app', () => {
 
   it('creates files', () => {
     assert.file([
-      'yarn.lock'
-      // '.editorconfig',
-      // 'redis.conf',
-      // 'package-lock.json',
-      // '.scss-lint.yml',
-      // 'LICENSE',
+      'yarn.lock',
+      '.editorconfig',
+      'redis.conf',
+      'package-lock.json',
+      '.scss-lint.yml',
+      'LICENSE'
       // 'client/views/page/example.pug',
       // 'client/vendor/kkpager/kkpager.min.js',
       // '.atom/snippets.cson',
