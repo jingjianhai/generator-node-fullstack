@@ -11,6 +11,8 @@
     "start": "./node_modules/.bin/babel generators/**/*.es6 -d ./ -w",
     "build": "./node_modules/.bin/babel generators/**/*.es6 -d ./ && yarn check-large-dirs",
     "pretest": "./node_modules/.bin/eslint ./generators/**/*.es6 --fix",
+    "test": "./node_modules/.bin/nyc --reporter=html --reporter=text --report-dir=doc/coverage --cache=false ./node_modules/.bin/mocha test/setup.js test/app.js -u exports -c -G -t 120s --es_staging",
+    "coverage": "node_modules/.bin/nyc report --reporter=text-lcov | node_modules/.bin/coveralls",
     "check-large-dirs": "./node_modules/.bin/space-hogs",
     "security-check": "yarn lint && yarn flow && yarn check-package",
     "check-package": "./node_modules/.bin/nsp check && yarn validate && yarn check --integrity && yarn deps-license",
@@ -27,8 +29,9 @@
     "update-atom-plugins": "apm upgrade --no-confirm"
   },
   "pre-commit": [
-    "check-package",
-    "validate"
+    "test",
+    "validate",
+    "check-package"
   ],
   "dependencies": {
     "async": "^2.4.1",
@@ -54,6 +57,7 @@
     "babel-preset-env": "^1.5.1",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-latest": "^6.24.1",
+    "coveralls": "^2.13.1",
     "eslint": "^3.19.0",
     "eslint-config-xo-space": "^0.16.0",
     "eslint-plugin-flowtype": "^2.34.0",
@@ -61,7 +65,9 @@
     "jscs": "^3.0.7",
     "jshint": "^2.9.4",
     "license-checker": "^11.0.0",
+    "mocha": "^3.4.2",
     "nsp": "^2.6.3",
+    "nyc": "^11.0.2",
     "precommit-hook": "^3.0.0",
     "space-hogs": "^1.5.0",
     "standard-version": "^4.0.0",
