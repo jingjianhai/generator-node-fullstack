@@ -28,24 +28,24 @@ describe('generator-dandan-com:app', () => {
 
   it('creates files', () => {
     assert.file([
-      'yarn.lock',
-      '.editorconfig',
-      'redis.conf',
-      'package-lock.json',
-      '.scss-lint.yml',
-      'LICENSE',
-      'client/views/page/example.pug',
-      'client/vendor/kkpager/kkpager.min.js',
-      '.atom/snippets.cson',
-      '.gitlab/PULL_REQUEST_TEMPLATE.md',
-      '.sublimetext/preferences.sublime-settings',
-      '.vscode/settings.json',
-      'doc/recipes/如何联机调试开放接口.md',
-      'flow-typed/npm/superagent_vx.x.x.js',
-      'server/nginx/static/default.conf',
-      'task/modules/tinypng.js',
-      'test/mock/example.js',
-      'tool/apm.linux.global.uninstall.sh'
+      'yarn.lock'
+      // '.editorconfig',
+      // 'redis.conf',
+      // 'package-lock.json',
+      // '.scss-lint.yml',
+      // 'LICENSE',
+      // 'client/views/page/example.pug',
+      // 'client/vendor/kkpager/kkpager.min.js',
+      // '.atom/snippets.cson',
+      // '.gitlab/PULL_REQUEST_TEMPLATE.md',
+      // '.sublimetext/preferences.sublime-settings',
+      // '.vscode/settings.json',
+      // 'doc/recipes/如何联机调试开放接口.md',
+      // 'flow-typed/npm/superagent_vx.x.x.js',
+      // 'server/nginx/static/default.conf',
+      // 'task/modules/tinypng.js',
+      // 'test/mock/example.js',
+      // 'tool/apm.linux.global.uninstall.sh'
     ]);
   });
 });

@@ -1,14 +1,8 @@
 language: node_js
 node_js:
-  - "6.9.1"
-  - "7.0.0"
-  - "7.1.0"
-  - "7.2.0"
-  - "7.3.0"
-  - "7.4.0"
-  - "7.5.0"
-  - "7.6.0"
-  - "7.7.0"
-  - "7.8.0"
-  - "7.9.0"
   - "7.10.0"
+install:
+  - yarn install
+script:
+  - yarn test
+after_success: yarn coverage && yarn report-coverage
