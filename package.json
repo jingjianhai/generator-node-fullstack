@@ -21,6 +21,7 @@
     "validate": "yarn list --depth=0",
     "flow": "./node_modules/.bin/flow check",
     "lint": "./node_modules/.bin/jshint ./generators/**/*.es6 && ./node_modules/.bin/eslint ./generators/**/*.es6",
+    "jscs": "./node_modules/.bin/jscs generators/**/*.es6",
     "update-authors": "sh ./tool/authors.sh",
     "pre-release": "yarn check && yarn update-authors && ./node_modules/.bin/standard-version -a -n --prerelease alpha -i CHANGELOG.md && yarn pack && yarn check-large-dirs",
     "first-release": "yarn check && yarn update-authors && ./node_modules/.bin/standard-version --first-release -a -n -i CHANGELOG.md && yarn pack && yarn check-large-dirs",
@@ -30,6 +31,8 @@
     "update-atom-plugins": "apm upgrade --no-confirm"
   },
   "pre-commit": [
+    "jscs",
+    "flow",
     "test",
     "validate",
     "check-package"
