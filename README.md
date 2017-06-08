@@ -126,3 +126,56 @@
 + [AngularJS Full-Stack](https://github.com/angular-fullstack), Yeoman generator for AngularJS with an Express server;
 + [RealWorld Example App](https://github.com/gothinkster/realworld), Exemplary fullstack Medium.com clone powered by React, Angular, Node, Django, and many more;
 + [Web Starter Kit](https://github.com/google/web-starter-kit), a workflow for multi-device websites.
+
+
+
+<h2 align="center">核心团队</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top">
+        <img width="150" height="150" src="https://avatars0.githubusercontent.com/u/5499703?v=3&s=450">
+        <br>
+        <a href="https://github.com/iTonyYo">沈维忠</a>
+        <p>生成器核心 & 公共关系</p>
+        <br>
+        <p>创始人 & 工程师</p>
+      </td>
+      <td align="center" valign="top">
+        <img width="150" height="150" src="https://avatars1.githubusercontent.com/u/29121788?v=3&u=e951d75410e777fe55dea633bf7f71377a0f83e9&s=450">
+        <br>
+        <a href="https://github.com/jhnns">郭增喜</a>
+        <p>文档</p>
+        <br>
+        <p>作者</p>
+      </td>
+      <td align="center" width="20%" valign="top">
+        <img width="150" height="150" src="https://avatars0.githubusercontent.com/u/12387549?v=3&s=450">
+        <br>
+        <a href="https://github.com/TheLarkInn">殷敏峰</a>
+        <p>生成器核心</p>
+        <br>
+        <p>工程师</p>
+      </td>
+      <td align="center" valign="top">
+        <img width="150" height="150" src="https://trello-attachments.s3.amazonaws.com/57cfdc1408c5cd8a08a84510/593965fd30e3a434c46bcde8/67926b090c6535268425157b33969b73/%E9%99%88%E9%9D%99.jpeg">
+        <br>
+        <a href="https://github.com/bebraw">陈静</a>
+        <p>社区<p>
+        <br>
+        <p>工程师</p>
+		<br>
+      </td>
+      <td align="center" valign="top">
+        <img width="150" height="150" src="https://trello-attachments.s3.amazonaws.com/57cfdc1408c5cd8a08a84510/5938f36cacadf1b675b33191/85a138b331eb377b8823ac3db2d3ebc1/%E5%8F%8B%E4%BC%9F.jpeg">
+        <br>
+        <a href="https://github.com/spacek33z">张友伟</a>
+        <p>顾问</p>
+        <br>
+        <p>工程师<p>
+		<br>
+      </td>
+     </tr>
+  </tbody>
+</table>
