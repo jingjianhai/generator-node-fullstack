@@ -6,6 +6,7 @@
 
 主要包括以下几个主要特点，
 - 专注于非单页 Web 应用；
+- 强调 `DevOps` 思想；
 - 离线优先；
 - 结构优先；
 - 不包含 `React`、`Angular`、`bootstrap`、`foundation` 等 `web` 前端 `css`、`js` 框架，高质量第三方底层组件优先；
