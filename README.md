@@ -171,7 +171,7 @@
       <td align="center" valign="top">
         <img width="150" height="150" src="https://trello-attachments.s3.amazonaws.com/57cfdc1408c5cd8a08a84510/5938f36cacadf1b675b33191/85a138b331eb377b8823ac3db2d3ebc1/%E5%8F%8B%E4%BC%9F.jpeg">
         <br>
-        <a href="https://github.com/spacek33z">张友伟</a>
+        <a href="https://github.com/spacek33z">占友伟</a>
         <p>顾问</p>
         <br>
         <p>工程师<p>
