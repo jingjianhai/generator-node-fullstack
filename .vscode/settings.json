@@ -5,5 +5,8 @@
   "editor.cursorStyle": "line",
   "editor.minimap.enabled": true,
   "zenMode.restore": true,
-  "editor.dragAndDrop": true
+  "editor.letterSpacing": 1,
+  "editor.dragAndDrop": true,
+  "workbench.iconTheme": "vs-seti",
+  "window.openFilesInNew": true
 }
