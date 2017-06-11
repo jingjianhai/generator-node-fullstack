@@ -23,15 +23,15 @@ mixin doc
     meta(http-equiv='cleartype', content='on')
     meta(name='msapplication-tap-highlight', content='no')
 
-    //- meta(name='url', content='http://<%- projectDomain %>/')
-    //- meta(name='identifier-URL', content='http://<%- projectDomain %>/')
-    //- meta(name='linkage', content='http://<%- projectDomain %>/')
-    //- link(rel='canonical', href='http://<%- projectDomain %>/')
+    meta(name='url', content='http://<%- projectDomain %>/')
+    meta(name='identifier-URL', content='http://<%- projectDomain %>/')
+    meta(name='linkage', content='http://<%- projectDomain %>/')
+    link(rel='canonical', href='http://<%- projectDomain %>/')
 
     block title
 
-    //- meta(name='keywords', content='<%- projectNameCN %>')
-    //- meta(name='description', content='<%- projectDescription %>')
+    meta(name='keywords', content='<%- projectNameCN %>')
+    meta(name='description', content='<%- projectDescription %>')
 
     meta(http-equiv='cache-control', content='public')
     meta(http-equiv='expires', content='max-age')
