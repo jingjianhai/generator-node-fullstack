@@ -28,7 +28,8 @@
     "release-major": "yarn check && yarn update-authors && ./node_modules/.bin/standard-version --release-as major -a -n -i CHANGELOG.md && yarn pack && yarn check-large-dirs",
     "release-minor": "yarn check && yarn update-authors && ./node_modules/.bin/standard-version --release-as minor -a -n -i CHANGELOG.md && yarn pack && yarn check-large-dirs",
     "release-patch": "yarn check && yarn update-authors && ./node_modules/.bin/standard-version --release-as patch -a -n -i CHANGELOG.md && yarn pack && yarn check-large-dirs",
-    "update-atom-plugins": "apm upgrade --no-confirm"
+    "update-atom-plugins": "apm upgrade --no-confirm",
+    "lines": "loc --exclude node_modules > ./doc/lines.txt && wc -l $(git ls-files) > ./doc/lines.each.txt"
   },
   "pre-commit": [
     "jscs",
@@ -63,10 +64,10 @@
     "babel-preset-latest": "^6.24.1",
     "codecov": "^2.2.0",
     "coveralls": "^2.13.1",
-    "eslint": "^3.19.0",
+    "eslint": "^4.0.0",
     "eslint-config-xo-space": "^0.16.0",
     "eslint-plugin-flowtype": "^2.34.0",
-    "flow-bin": "^0.47.0",
+    "flow-bin": "^0.48.0",
     "jscs": "^3.0.7",
     "jshint": "^2.9.4",
     "license-checker": "^11.0.0",
@@ -74,8 +75,9 @@
     "nsp": "^2.6.3",
     "nyc": "^11.0.2",
     "precommit-hook": "^3.0.0",
+    "pug-lint": "^2.4.0",
     "space-hogs": "^1.5.0",
-    "standard-version": "^4.0.0",
+    "standard-version": "^4.2.0",
     "yeoman-assert": "^3.0.0",
     "yeoman-test": "^1.6.0"
   },
