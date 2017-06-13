@@ -5,14 +5,15 @@
 # [NODE 全栈工程生成器](https://git.io/vHBfO)
 
 主要包括以下几个主要特点，
-- 专注于非单页 Web 应用；
-- 强调 `DevOps` 思想；
+- 专注于非单页、渐进式、前后端分离 Web 站点 / 应用；
+- 强调 `DevOps` 思想及相关实现；
+- 自动化优先；
 - 离线优先；
 - 结构优先；
 - 不包含 `React`、`Angular`、`bootstrap`、`foundation` 等 `web` 前端 `css`、`js` 框架，高质量第三方底层组件优先；
 - 适配微服务、Serverless 等架构模型；
-- 遵循 MVC 设计模式；
-- 基于 `Node`、`Express`、`Redis`、`MongoDB` 等服务器端技术。
+- 前后 2 端均遵循 MVC 设计模式；
+- 基于 `Node`、`Express`、`Redis`、`MongoDB` 等服务器端技术；
 
 ***你不一定会在这儿找到令你惊讶的东西，但是 `generator-node-fullstack` 需要你的热情！^_^***
 
