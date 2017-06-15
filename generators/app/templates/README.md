@@ -26,7 +26,7 @@
 | 功能 | 描述 |
 |------|------|
 | Express.js | Node.js Web 全栈开发 |
-| HTTPS | 在开发活动中基于 HTTPS 传输协议 |
+| HTTPS | 在开发活动中基于 HTTPS 传输协议，参阅 [HTTPS on Stack Overflow: The End of a Long Road](https://nickcraver.com/blog/2017/05/22/https-on-stack-overflow/) 了解 HTTPS 对项目的影响 |
 | MVC | 融入了 MVC 设计模式的工程 & 代码结构 |
 | Pug 预处理 | 转译 Pug 为普通的 HTML，将模板、函数、变量等编程方式引入视图工程中 |
 | Sass 预处理 | 转译 SCSS 为普通的 CSS，将变量、函数等编程方式引入样式表工程中 |
