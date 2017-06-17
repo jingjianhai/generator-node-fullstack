@@ -5,7 +5,7 @@ title: 介绍
 
 这是一个专注于真实生产场景的 Node 全栈工程生成器，主要包括以下几个主要特点，
 - 专注于非单页、渐进式、前后端分离 Web 站点 / 应用；
-- 强调 `DevOps` 思想及相关实现；
+- 强调 [`DevOps`](https://zh.wikipedia.org/zh-cn/DevOps) 思想及相关实现；
 - 自动化优先；
 - 离线优先；
 - 结构优先；
@@ -15,6 +15,37 @@ title: 介绍
 - 基于 `Node`、`Express`、`Redis`、`MongoDB` 等服务器端技术；
 
 ***你不一定会在这儿找到令你惊讶的东西，但是 `generator-node-fullstack` 需要你的热情！^_^***
+
+
+
+## 目录
+
+- 生成器参数
+- 有效的生成器
+- 工程介绍
+- 技术栈
+- 浏览器支持
+- 灵感
+
+
+
+### 生成器参数
+
+- `--skip-welcome-message`
+- `--skip-install-message`
+- `--skip-install`
+
+
+
+### 有效的生成器
+
+- App
+  - `yo node-fullstack`（`yo node-fullstack:app`亦可）
+- Utility
+  - `yo node-fullstack:new-page`
+  - `yo node-fullstack:new-ui-component`
+
+
 
 ### 工程介绍
 
@@ -42,18 +73,34 @@ title: 介绍
 | Git 提交倒钩 | 未通过代码检测的情况下无法提交代码 |
 | 更新日志 | 语义化版本，并记录所有版本的重大变动 |
 
-### 生成器参数
 
-- `--skip-welcome-message`
-- `--skip-install-message`
-- `--skip-install`
 
-### 有效的生成器
+### 技术栈
 
-- App
-  - `yo node-fullstack`（`yo node-fullstack:app`亦可）
-- Utility
-  - `yo node-fullstack:new-page`
+下述为约定好的主要技术栈，
+
+- [ ] Node.js
+- [ ] Express.js
+- [ ] Redis
+- [ ] MongoDB
+- [ ] PM2
+- [ ] Browsersync
+- [ ] Gulp
+- [ ] Webpack
+- [ ] Mocha
+- [ ] Chai
+- [ ] Sinon
+- [ ] Babel.js
+- [ ] Flowtype
+- [ ] Pug
+- [ ] Sass
+- [ ] Async.js
+- [ ] Lodash.js
+- [ ] Immutable.js
+- [ ] PouchDB
+- [ ] ...
+
+
 
 ### 浏览器支持
 
