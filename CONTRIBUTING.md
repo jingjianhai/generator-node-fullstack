@@ -258,17 +258,55 @@ source /Users/whoami/.rvm/scripts/rvm #此处应更新为你本机的位置，�
 
 **实时构建** 的过程中不包含代码的各种检测可以带来更高的 **实时构建** 效率，基于这样的考虑，我们默认将诸如书写、类型、语法检测等任务交给编辑器以提升实时构建的效率等，也正是如此，我们需要统一编辑器的使用约定，
 
-- 注重编辑器的提示界面，推荐使用 [Atom](https://atom.io/)；
-- 更在乎编辑器的性能，推荐使用 [Visual Studio Code](https://code.visualstudio.com/)；
+**注重编辑器的提示界面，推荐使用 [Atom](https://atom.io/)，**
 
 安装 Atom 插件，
 
 ```shell
 sh ./tool/apm.global.install.sh   # 如果使用的是 OS X 系统
-sh ./tool/apm.linux.global.install.sh   # 如果使用的是 Linux 系统
 ```
 
-> 提示：如果你感到安装插件后，Atom 的运行速度明显降低，你可以临时禁用一些插件来解决这个问题。
+另外，可以了解下面列出来的插件，可以加强你的 Atom 编辑器及使用体验（但是也可能会让编辑器的效率降低），
+
+- [nuclide](https://atom.io/packages/nuclide)
+- [nuclide-format-js](https://atom.io/packages/nuclide-format-js)
+- [emmet](https://atom.io/packages/emmet)
+- [editor-stats](https://atom.io/packages/editor-stats)
+- [custom-title](https://atom.io/packages/custom-title)
+- [activate-power-mode](https://atom.io/packages/activate-power-mode)
+- [auto-update-packages](https://atom.io/packages/auto-update-packages)
+- [haskell-grammar](https://atom.io/packages/haskell-grammar)
+- [language-fish-shell](https://atom.io/packages/language-fish-shell)
+- [language-gradle](https://atom.io/packages/language-gradle)
+- [language-lua](https://atom.io/packages/language-lua)
+- [language-ocaml](https://atom.io/packages/language-ocaml)
+- [language-thrift](https://atom.io/packages/language-thrift)
+- [MagicPython](https://atom.io/packages/MagicPython)
+- [pretty-json](https://atom.io/packages/pretty-json)
+- [travis-ci-status](https://atom.io/packages/travis-ci-status)
+- [sync-settings](https://atom.io/packages/sync-settings)
+- [remote-edit](https://atom.io/packages/remote-edit)
+- [linter-tslint](https://atom.io/packages/linter-tslint)
+- [language-swift](https://atom.io/packages/language-swift)
+- [hey-pane](https://atom.io/packages/hey-pane)
+- [set-syntax](https://atom.io/packages/set-syntax)
+- [an-old-hope-syntax](https://atom.io/packages/an-old-hope-syntax)
+
+**更在乎编辑器的性能，推荐使用 [Visual Studio Code](https://code.visualstudio.com/)，**
+
+安装 Visual Studio Code 插件，
+
+- EditorConfig for Visual Studio Code
+- VS Code ESLint extension
+- vscode-jest
+- JSCS Linting
+- Project Manager
+- scss-lint
+
+另外，可以了解下面列出来的插件，可以加强你的 Visual Studio Code 编辑器及使用体验，
+
+- seti-icons
+- vscode-icons
 
 ### 配置运行前端工程的环境
 
