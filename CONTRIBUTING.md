@@ -132,14 +132,14 @@
 
 系统支持，
 
-- Linux
-- Unix
+- Linux(Ubuntu, etc)
+- Unix(Mac OS X)
 
 上述并非表明不支持其它系统，只不过我们专注于支持上述系统。
 
 ### 在全网环境（借助 VPN）下工作
 
-虽然有淘宝 NPM、GEM 等国内镜像的支持，但是不可排除部分库自身会从国外诸如亚马逊服务器上下载依赖的情况，为了避免相关情况影响到实际生产效率，推荐在全网环境下进行开发活动，一次性解决所有潜在的库下载问题等。
+虽然有淘宝 NPM、GEM 等国内镜像的支持，但是不可排除部分库自身会从国外诸如亚马逊服务器上下载依赖的情况，比如：Phantom.js，为了避免相关情况影响到实际生产效率，推荐在全网环境下进行开发活动，一次性解决所有潜在的库下载问题等。
 
 ### 使用 Chrome 浏览器
 
@@ -149,11 +149,11 @@ Chrome 浏览器的开发者工具、插件生态、性能等无与伦比，推�
 
 #### 安装软件
 
-如果你使用 Windows 7+ 系统，需要 **依序 全局安装** 下述软件，否则忽略，
+（使用 Linux(Ubuntu, etc) 或者 Unix(Mac OS X) 系统的筒子飘过这一段）如果你使用 Windows 7+ 系统，需要 **依序 全局安装** 下述软件，否则忽略，
 - [Chocolatey](https://chocolatey.org/install) ( 参阅 [`Windows 系统的包管理器 Chocolatey`](http://www.tuicool.com/articles/QV7VNrR) 以安装 )
 - [Wget ( 管理员权限下运行 Power Shell 命令行界面输入 `choco install wget` 以安装 )](https://www.gnu.org/software/wget/)
 
-**依序 全局安装** 下述软件，
+无论你使用的是 Linux(Ubuntu, etc)、Unix(Mac OS X) 抑或 Windows 系统，**依序 全局安装** 下述软件，
 
 - Git ( [win 2.11.1 / osx 2.11.1 / Linux](https://git-scm.com/) )
 - [GitFlow ( 使用 Wget 的方式安装 )](https://github.com/nvie/gitflow/wiki/Windows#cygwin)
@@ -180,11 +180,41 @@ Chrome 浏览器的开发者工具、插件生态、性能等无与伦比，推�
 
 ### 借助 ZSH 加强你的命令行界面
 
-#### 更新 `.zshrc`
+#### 安装 OH-MY-ZSH
+
+安装 [OH-MY-ZSH](http://ohmyz.sh/) 前，先确保成功安装了 [ZSH](https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH)。
+
+接着，执行下述指令之一以完成 [OH-MY-ZSH](http://ohmyz.sh/) 的安装，
+
+```shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+或者，
+
+```shell
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+```
+
+如果想要了解更多安装方面，查阅官方 [快速开始](https://github.com/robbyrussell/oh-my-zsh#getting-started) 文档。
+
+#### 更新 OH-MY-ZSH 的配置
+
+***这份配置文件（.zshrc）在当前系统用户根目录下***，Unix(Mac OS X) 下直接运行下述指令即可在 [Vim](https://vim.sourceforge.io/) 模式下编辑该配置文件，
+
+```shell
+vi ~/.zshrc
+```
+
+如果是 Linux(Ubuntu) 桌面系统的话，推荐用 **文本编辑器** 编辑。
+
+默认情况下，配置文件（.zshrc）中会包含 `plugins=(git)` 这样的内容，可以通过全文搜索的办法定位到，替换成下述内容即可，
 
 ```
 plugins=(git nvm rvm node yarn gulp grunt autojump aws bower python branch copydir copyfile cp docker-compose docker emoji-clock emoji encode64 gem git-extras git-flow-avh git-flow git-hubflow git-prompt git-remote-branch gitfast github gitignore history history-substring-search meteor npm pass pip sudo sublime svn vi-mode zsh_reload ubuntu)
 ```
+
+> 依序完成上述预估耗时 5 分钟。
 
 #### Linux 提示
 
@@ -208,6 +238,8 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | b
 
 #### 安装 RVM
 
+**依序 执行** 下述 2 条指令，
+
 ```
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 
@@ -224,7 +256,19 @@ source /Users/whoami/.rvm/scripts/rvm #此处应更新为你本机的位置，�
 
 ### 统一使用 Atom/VSCode 编辑器
 
-工程设计中将诸如书写、类型、语法检测等任务交给编辑器以提升实时转译的效率等，故需要统一编辑器的设定以增强实际工作效率。
+**实时构建** 的过程中不包含代码的各种检测可以带来更高的 **实时构建** 效率，基于这样的考虑，我们默认将诸如书写、类型、语法检测等任务交给编辑器以提升实时构建的效率等，也正是如此，我们需要统一编辑器的使用约定，
+
+- 注重编辑器的提示界面，推荐使用 [Atom](https://atom.io/)；
+- 更在乎编辑器的性能，推荐使用 [Visual Studio Code](https://code.visualstudio.com/)；
+
+安装 Atom 插件，
+
+```shell
+sh ./tool/apm.global.install.sh   # 如果使用的是 OS X 系统
+sh ./tool/apm.linux.global.install.sh   # 如果使用的是 Linux 系统
+```
+
+> 提示：如果你感到安装插件后，Atom 的运行速度明显降低，你可以临时禁用一些插件来解决这个问题。
 
 ### 配置运行前端工程的环境
 
@@ -251,9 +295,6 @@ source /Users/whoami/.rvm/scripts/rvm #此处应更新为你本机的位置，�
 运行下面的指令安装不同运行时下需要的第三方库（记得验证这些库是否成功安装），
 
 ```shell
-sh ./tool/apm.global.install.sh   # 如果使用的是 OS X 系统
-sh ./tool/apm.linux.global.install.sh   # 如果使用的是 Linux 系统
-
 sh ./tool/gem.osx.install.sh   # 如果使用的是 OS X 系统
 sh ./tool/gem.linux.install.sh   # 如果使用的是 Linux 系统
 
@@ -262,17 +303,17 @@ sh ./tool/yarn.global.install.sh
 sh ./tool/cargo.install.sh
 ```
 
-平常的时间可以研究一下上面涉及到的第三方库，有益身心健康。
+推荐深入研究上面 `shell` 脚本里头涉及到的第三方库。
 
 > 完成上述预估耗时 25 分钟。
 
 ### 通过 Trello 解决协作中信息共享的问题
 
-团队中协作的根本问题是信息的共享，借助 Trello 共享各方面工作流、任务动态等。
+团队中协作的根本问题是信息的共享，我们主要借助 Trello 共享各方面工作流、任务动态等。
 
 ### 使用 Slack 自动化协作
 
-正如前面所说，团队中协作的根本问题是信息的共享，所以我们借助 Slack 这样的平台，加速诸如 Git 提交、Trello 看板的操作、发布过程反馈等等信息的整合及快速流通。
+正如前面所说，团队中协作的根本问题是信息的共享，所以我们借助 Slack 这样的平台，加速诸如 Git 提交、Trello 看板的操作、发布过程反馈等等信息的整合及快速流通，哪怕某个成员推送了代码也第一时间反馈给所有其他成员。
 
 
 
@@ -299,8 +340,8 @@ sh ./tool/cargo.install.sh
 
 ### 命名
 
-- **文件命名**：小写，单数，若文件名包括若干单词，使用 `.` 分割：`smple.file.js`、`simple.file.scss`、`simple.file.png`；
-- **文件夹命名**：小写，单数，若文件夹名包括若干单词，使用 `_` 分割：`node_modules`；
+- **文件命名**：小写，单数，若文件名包括若干单词，使用 `.` 分割（但推荐能用一个单词描述绝不用两个）：`smple.file.js`、`simple.file.scss`、`simple.file.png`；
+- **文件夹命名**：小写，单数，若文件夹名包括若干单词，使用 `_` 分割（但推荐能用一个单词描述绝不用两个）：`node_modules`；
 - Scss、JavaScript、Git 分支等 **命名方式** 参见下述文档；
 
 ### Scss
