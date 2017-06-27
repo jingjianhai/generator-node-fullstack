@@ -131,7 +131,7 @@
   <tbody>
     <tr>
       <td align="center" valign="top">
-        <img width="160" height="160" src="https://avatars0.githubusercontent.com/u/5499703?v=3&s=450">
+        <img width="180" height="180" src="https://avatars0.githubusercontent.com/u/5499703?v=3&s=450">
         <br>
         <a href="https://github.com/iTonyYo">沈维忠</a>
         <p>生成器核心 & 公共关系</p>
@@ -139,7 +139,7 @@
         <p>创始人 & 工程师</p>
       </td>
       <td align="center" width="20%" valign="top">
-        <img width="160" height="160" src="https://avatars0.githubusercontent.com/u/12387549?v=3&s=450">
+        <img width="180" height="180" src="https://avatars0.githubusercontent.com/u/12387549?v=3&s=450">
         <br>
         <a href="https://github.com/TheLarkInn">殷敏峰</a>
         <p>生成器核心</p>
@@ -147,7 +147,7 @@
         <p>工程师</p>
       </td>
       <td align="center" valign="top">
-        <img width="160" height="160" src="https://trello-attachments.s3.amazonaws.com/57cfdc1408c5cd8a08a84510/593965fd30e3a434c46bcde8/67926b090c6535268425157b33969b73/%E9%99%88%E9%9D%99.jpeg">
+        <img width="180" height="180" src="https://trello-attachments.s3.amazonaws.com/57cfdc1408c5cd8a08a84510/593965fd30e3a434c46bcde8/67926b090c6535268425157b33969b73/%E9%99%88%E9%9D%99.jpeg">
         <br>
         <a href="https://github.com/bebraw">陈静</a>
         <p>文档 & 社区<p>
@@ -156,7 +156,7 @@
 		<br>
       </td>
       <td align="center" valign="top">
-        <img width="160" height="160" src="https://trello-attachments.s3.amazonaws.com/57cfdc1408c5cd8a08a84510/5938f36cacadf1b675b33191/85a138b331eb377b8823ac3db2d3ebc1/%E5%8F%8B%E4%BC%9F.jpeg">
+        <img width="180" height="180" src="https://trello-attachments.s3.amazonaws.com/57cfdc1408c5cd8a08a84510/5938f36cacadf1b675b33191/85a138b331eb377b8823ac3db2d3ebc1/%E5%8F%8B%E4%BC%9F.jpeg">
         <br>
         <a href="https://github.com/spacek33z">占友伟</a>
         <p>顾问</p>
