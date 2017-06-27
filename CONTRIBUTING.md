@@ -292,9 +292,13 @@ sh ./tool/apm.global.install.sh   # 如果使用的是 OS X 系统
 - [set-syntax](https://atom.io/packages/set-syntax)
 - [an-old-hope-syntax](https://atom.io/packages/an-old-hope-syntax)
 
-**更在乎编辑器的性能，推荐使用 [Visual Studio Code](https://code.visualstudio.com/)，**
+结合上面插件的 Atom 详细配置参见这个 [Gist](https://gist.github.com/iTonyYo/759c04a87501425a6861d6f19b4a2202)，如何自定义 Atom 参见官方的 [介绍](http://flight-manual.atom.io/using-atom/sections/basic-customization/)。
+
+:traffic_light: **更在乎编辑器的性能，推荐使用 [Visual Studio Code](https://code.visualstudio.com/)，**
 
 安装 Visual Studio Code 插件，
+
+> 提示：下述将 `Visual Studio Code 编辑器` 简述为 `VS Code`。
 
 - EditorConfig for Visual Studio Code
 - VS Code ESLint extension
@@ -303,10 +307,12 @@ sh ./tool/apm.global.install.sh   # 如果使用的是 OS X 系统
 - Project Manager
 - scss-lint
 
-另外，可以了解下面列出来的插件，可以加强你的 Visual Studio Code 编辑器及使用体验，
+另外，可以了解下面列出来的插件，可以加强你的 VS Code 编辑器及使用体验，
 
 - seti-icons
 - vscode-icons
+
+VS Code 的详细配置已经可视化在 `.vscode` 目录下，如果想要了解如何 [自定义 VS Code](https://code.visualstudio.com/docs/introvideos/configure)，参见官方 [介绍](https://code.visualstudio.com/docs/introvideos/configure)。
 
 ### 配置运行前端工程的环境
 
