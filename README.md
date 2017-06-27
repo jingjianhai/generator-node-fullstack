@@ -138,14 +138,6 @@
         <br>
         <p>创始人 & 工程师</p>
       </td>
-      <td align="center" valign="top">
-        <img width="150" height="150" src="https://avatars1.githubusercontent.com/u/29121788?v=3&u=e951d75410e777fe55dea633bf7f71377a0f83e9&s=450">
-        <br>
-        <a href="https://github.com/jhnns">郭增喜</a>
-        <p>文档</p>
-        <br>
-        <p>作者</p>
-      </td>
       <td align="center" width="20%" valign="top">
         <img width="150" height="150" src="https://avatars0.githubusercontent.com/u/12387549?v=3&s=450">
         <br>
@@ -158,7 +150,7 @@
         <img width="150" height="150" src="https://trello-attachments.s3.amazonaws.com/57cfdc1408c5cd8a08a84510/593965fd30e3a434c46bcde8/67926b090c6535268425157b33969b73/%E9%99%88%E9%9D%99.jpeg">
         <br>
         <a href="https://github.com/bebraw">陈静</a>
-        <p>社区<p>
+        <p>文档 & 社区<p>
         <br>
         <p>工程师</p>
 		<br>
