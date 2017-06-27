@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+var gitValidate = require('git-validate');
+
+gitValidate.installScript('lint', 'node_modules/.bin/npm-run-all -p scss-lint eslint');
+gitValidate.configureHook('pre-commit', [
+  'check-package'
+]);

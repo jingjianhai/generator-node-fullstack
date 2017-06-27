@@ -3,6 +3,7 @@
 echo "### 开始卸载全局 Node 依赖"
 
 yarn global remove \
+  np \
   autoprefixer \
   babel-cli \
   bower \
@@ -10,7 +11,13 @@ yarn global remove \
   caniuse-cmd \
   diff-so-fancy \
   eslint \
+  eslint-plugin-flowtype \
+  eslint-plugin-react \
+  eslint-plugin-compat \
+  eslint-plugin-import \
+  eslint-plugin-jsx-a11y \
   gulp \
+  grunt-cli \
   jscs \
   lerna \
   mocha \
@@ -22,5 +29,8 @@ yarn global remove \
   pug-cli \
   space-hogs \
   vtop \
+  json-server \
+  npm-check-updates \
+  @storybook/cli \
 
 echo "卸载完成。"

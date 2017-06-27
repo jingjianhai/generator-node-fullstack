@@ -1,8 +1,8 @@
 #!/bin/sh
 
-echo "### 开始卸载全局 Node 依赖"
+echo "### 开始安装 Node 依赖..."
 
-yarn global remove \
+npm i -g \
   np \
   autoprefixer \
   babel-cli \
@@ -33,4 +33,4 @@ yarn global remove \
   npm-check-updates \
   @storybook/cli \
 
-echo "卸载完成。"
+echo "安装完成。"

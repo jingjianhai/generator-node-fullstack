@@ -2,7 +2,7 @@
 
 echo "### 开始卸载全局 Node 依赖"
 
-yarn global remove \
+npm i -g \
   np \
   autoprefixer \
   babel-cli \
