@@ -138,7 +138,7 @@
         <br>
         <p>创始人 & 工程师</p>
       </td>
-      <td align="center" width="20%" valign="top">
+      <td align="center" valign="top">
         <img width="180" height="180" src="https://avatars0.githubusercontent.com/u/12387549?v=3&s=450">
         <br>
         <a href="https://github.com/TheLarkInn">殷敏峰</a>
