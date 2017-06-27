@@ -464,8 +464,8 @@ feat(新功能): 一个新功能
 - **perf(性能): :racehorse: `:racehorse:` 提升性能的更改**
 - **test(测试): :white_check_mark: `:white_check_mark:` 测试用例的增删改**
 - **chore(*): :vertical_traffic_light: `:vertical_traffic_light:` 自动化管道、配置、依赖、运行时等修改**
-- **improve(完善): :art: `:art:` 并非新功能，加强稳定性、扩展性、完整性等修改**
-- **remove(移除): :fire: `:fire:` 专门移除功能 / 代码 / 文
+- **improvement(完善): :art: `:art:` 并非新功能，加强稳定性、扩展性、完整性等修改**
+- **removal(移除): :fire: `:fire:` 专门移除功能 / 代码 / 文
 件等修改**
 
 #### 其它
