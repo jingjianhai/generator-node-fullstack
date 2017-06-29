@@ -492,28 +492,31 @@ feat(新功能): 一个新功能
 
 #### 修改的主题
 
-- **feat(新功能): 一个新功能**
+- **feat(新功能): :tada: `:tada:` 一个新功能**
 - **fix(修复): :bug: `:bug:` 一个问题的修复**
 - **docs(文档): :memo: `:memo:` 文档的变更**
-- **style(格式): :art: `:art:` 对代码无意义无影响的修改，诸如：格式、标点符号等**
-- **refactor(重构): 更新了算法、解决方案等属性的修改**
+- **style(格式): :art: `:art:` 对代码无意义无影响的修改，诸如：
+格式、标点符号等**
+- **refactor(重构): :jack_o_lantern: `:jack_o_lantern:` 更新了算法、解决方案等属性的修改**
 - **perf(性能): :racehorse: `:racehorse:` 提升性能的更改**
 - **test(测试): :white_check_mark: `:white_check_mark:` 测试用例的增删改**
-- **chore(*): 自动化管道、配置、依赖、运行时等修改**
-- **improve(完善): :art: `:art:` 并非新功能，加强稳定性、扩展性、完整性等修改**
-- **remove(移除): :fire: `:fire:` 专门移除功能 / 代码 / 文件等修改**
+- **chore(*): :vertical_traffic_light: `:vertical_traffic_light:` 自动化管道、配置、依赖、运行时等修改**
+- **improvement(完善): :art: `:art:` 并非新功能，加强稳定性、扩展性、完整性等修改**
+- **removal(移除): :fire: `:fire:` 专门移除功能 / 代码 / 文
+件等修改**
 
 #### 其它
 
 在提交消息的开始使用 **emoji**，
   * :penguin: `:penguin:` 修复在 Linux 上的问题
   * :apple: `:apple:` 修复在 macOS 上的问题
-  * :checkered_flag: `:checkered_flag:` 修复在 Windows 上的问题
+  * :checkered_flag: `:checkered_flag:` 修复在 Windows
+   上的问题
   * :green_heart: `:green_heart:` 修复持续集成工具的报错
   * :lock: `:lock:` 处理安全方面的新增、改进、修改
   * :arrow_up: `:arrow_up:` 升级依赖
   * :arrow_down: `:arrow_down:` 降级依赖
-  * :shirt: `:shirt:` 移除 linter 规则
+  * :shirt: `:shirt:` 移除 linter 规则
 
 此外，工程当前严格遵守 [Conventional Commits 1.0.0-beta.1](https://conventionalcommits.org/) 提交公约并借助 [standard-version](https://github.com/conventional-changelog/standard-version) 自动生成更新日志。
 
