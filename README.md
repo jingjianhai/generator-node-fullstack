@@ -21,12 +21,13 @@
 
 ## 目录
 
-- 生成器参数
-- 有效的生成器
-- 工程介绍
-- 技术栈
-- 浏览器支持
-- 灵感
+- [生成器参数](#生成器参数)
+- [有效的生成器](#有效的生成器)
+- [工程介绍](#工程介绍)
+- [技术栈](#技术栈)
+- [浏览器支持](#浏览器支持)
+- [灵感](#灵感)
+- [参与贡献](#参与贡献)
 
 
 
@@ -122,6 +123,12 @@
 + [AngularJS Full-Stack](https://github.com/angular-fullstack), Yeoman generator for AngularJS with an Express server;
 + [RealWorld Example App](https://github.com/gothinkster/realworld), Exemplary fullstack Medium.com clone powered by React, Angular, Node, Django, and many more;
 + [Web Starter Kit](https://github.com/google/web-starter-kit), a workflow for multi-device websites.
+
+
+
+### 参与贡献
+
+详细参见 [CONTRIBUTING.md](https://github.com/huso-io/generator-node-fullstack/blob/master/CONTRIBUTING.md)。
 
 
 
