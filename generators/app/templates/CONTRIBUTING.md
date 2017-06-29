@@ -35,6 +35,9 @@
   - [通过 Trello 解决协作中信息共享的问题](#通过-trello-解决协作中信息共享的问题)
   - [使用 Slack 自动化协作](#使用-slack-自动化协作)
 
+[熟悉项目](#熟悉项目)
+  - [文件夹结构](#文件夹结构)
+
 [指南](#指南)
   - [工作流](#工作流)
   - [一个页面完成的标准](#一个页面完成的标准)
@@ -132,8 +135,8 @@
 
 系统支持，
 
-- Linux
-- Unix
+- Linux(Ubuntu)
+- Unix(Mac OS X)
 
 上述并非表明不支持其它系统，只不过我们专注于支持上述系统。
 
@@ -149,11 +152,14 @@ Chrome 浏览器的开发者工具、插件生态、性能等无与伦比，推�
 
 #### 安装软件
 
-如果你使用 Windows 7+ 系统，需要 **依序 全局安装** 下述软件，否则忽略，
+（使用 Linux(Ubuntu) 或者 Unix(Mac OS X) 系统的筒子飘过这一段
+）如果你使用 Windows 7+ 系统，需要 **依序 全局安装** 下述软件，否
+则忽略，
 - [Chocolatey](https://chocolatey.org/install) ( 参阅 [`Windows 系统的包管理器 Chocolatey`](http://www.tuicool.com/articles/QV7VNrR) 以安装 )
 - [Wget ( 管理员权限下运行 Power Shell 命令行界面输入 `choco install wget` 以安装 )](https://www.gnu.org/software/wget/)
 
-**依序 全局安装** 下述软件，
+无论你使用的是 Linux(Ubuntu)、Unix(Mac OS X) 抑或 Windows
+ 系统，**依序 全局安装** 下述软件，
 
 - Git ( [win 2.11.1 / osx 2.11.1 / Linux](https://git-scm.com/) )
 - [GitFlow ( 使用 Wget 的方式安装 )](https://github.com/nvie/gitflow/wiki/Windows#cygwin)
@@ -180,11 +186,44 @@ Chrome 浏览器的开发者工具、插件生态、性能等无与伦比，推�
 
 ### 借助 ZSH 加强你的命令行界面
 
-#### 更新 `.zshrc`
+#### 安装 OH-MY-ZSH
+
+安装 [OH-MY-ZSH](http://ohmyz.sh/) 前，先确保成功安装了 [ZSH](https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH)。
+
+接着，执行下述指令之一以完成 [OH-MY-ZSH](http://ohmyz.sh/) 的安装，
+
+```shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+或者，
+
+```shell
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+```
+
+如果想要了解更多安装方面，查阅官方 [快速开始](https://github.com/robbyrussell/oh-my-zsh#getting-started) 文档。
+
+#### 更新 OH-MY-ZSH 的配置
+
+***这份配置文件（.zshrc）在当前系统用户根目录下***，Unix(Mac OS X)
+ 下直接运行下述指令即可在 [Vim](https://vim.sourceforge.io/) 模式
+ 下编辑该配置文件，
+
+```shell
+vi ~/.zshrc
+```
+
+如果是 Linux(Ubuntu) 桌面系统的话，推荐用 **文本编辑器** 编辑。
+
+默认情况下，配置文件（.zshrc）中会包含 `plugins=(git)` 这样的内容，可
+以通过全文搜索的办法定位到，替换成下述内容即可，
 
 ```
 plugins=(git nvm rvm node yarn gulp grunt autojump aws bower python branch copydir copyfile cp docker-compose docker emoji-clock emoji encode64 gem git-extras git-flow-avh git-flow git-hubflow git-prompt git-remote-branch gitfast github gitignore history history-substring-search meteor npm pass pip sudo sublime svn vi-mode zsh_reload ubuntu)
 ```
+
+> 依序完成上述预估耗时 5 分钟。
 
 #### Linux 提示
 
@@ -208,13 +247,15 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | b
 
 #### 安装 RVM
 
+**依序 执行** 下述 2 条指令，
+
 ```
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 
 \curl -sSL https://get.rvm.io | bash -s stable --ruby
 ```
 
-如果想要了解更多安装方面，查阅 [Installing RVM](https://rvm.io/rvm/install)。
+如果想要了解更多安装方面，查阅 [Installing RVM](https://rvm.io/rvm/install)。
 
 #### 更新 `.zshrc`
 
@@ -224,7 +265,65 @@ source /Users/whoami/.rvm/scripts/rvm #此处应更新为你本机的位置，�
 
 ### 统一使用 Atom/VSCode 编辑器
 
-工程设计中将诸如书写、类型、语法检测等任务交给编辑器以提升实时转译的效率等，故需要统一编辑器的设定以增强实际工作效率。
+**实时构建** 的过程中不包含代码的各种检测可以带来更高的 **实时构建**
+ 效率，基于这样的考虑，我们默认将诸如书写、类型、语法检测等任务交给编辑
+器以提升实时构建的效率等，也正是如此，我们需要统一编辑器的使用约定，
+
+:traffic_light: **注重编辑器的提示界面，推荐使用 [Atom](https://atom.io/)，**
+
+安装 Atom 插件，
+
+```shell
+sh ./tool/apm.global.install.sh   # 如果使用的是 OS X 系统
+```
+
+另外，可以了解下面列出来的插件，可以加强你的 Atom 编辑器及使用体验（但是也可能会让编辑器的效率降低），
+
+- [nuclide](https://atom.io/packages/nuclide)
+- [nuclide-format-js](https://atom.io/packages/nuclide-format-js)
+- [emmet](https://atom.io/packages/emmet)
+- [editor-stats](https://atom.io/packages/editor-stats)
+- [custom-title](https://atom.io/packages/custom-title)
+- [activate-power-mode](https://atom.io/packages/activate-power-mode)
+- [auto-update-packages](https://atom.io/packages/auto-update-packages)
+- [haskell-grammar](https://atom.io/packages/haskell-grammar)
+- [language-fish-shell](https://atom.io/packages/language-fish-shell)
+- [language-gradle](https://atom.io/packages/language-gradle)
+- [language-lua](https://atom.io/packages/language-lua)
+- [language-ocaml](https://atom.io/packages/language-ocaml)
+- [language-thrift](https://atom.io/packages/language-thrift)
+- [MagicPython](https://atom.io/packages/MagicPython)
+- [pretty-json](https://atom.io/packages/pretty-json)
+- [travis-ci-status](https://atom.io/packages/travis-ci-status)
+- [sync-settings](https://atom.io/packages/sync-settings)
+- [remote-edit](https://atom.io/packages/remote-edit)
+- [linter-tslint](https://atom.io/packages/linter-tslint)
+- [language-swift](https://atom.io/packages/language-swift)
+- [hey-pane](https://atom.io/packages/hey-pane)
+- [set-syntax](https://atom.io/packages/set-syntax)
+- [an-old-hope-syntax](https://atom.io/packages/an-old-hope-syntax)
+
+结合上面插件的 Atom 详细配置参见这个 [Gist](https://gist.github.com/iTonyYo/759c04a87501425a6861d6f19b4a2202)，如何自定义 Atom 参见官方的 [介绍](http://flight-manual.atom.io/using-atom/sections/basic-customization/)。
+
+:traffic_light: **更在乎编辑器的性能，推荐使用 [Visual Studio Code](https://code.visualstudio.com/)，**
+
+安装 Visual Studio Code 插件，
+
+> 提示：下述将 `Visual Studio Code 编辑器` 简述为 `VS Code`。
+
+- EditorConfig for Visual Studio Code
+- VS Code ESLint extension
+- vscode-jest
+- JSCS Linting
+- Project Manager
+- scss-lint
+
+另外，可以了解下面列出来的插件，可以加强你的 VS Code 编辑器及使用体验，
+
+- seti-icons
+- vscode-icons
+
+VS Code 的详细配置已经可视化在 `.vscode` 目录下，如果想要了解如何 [自定义 VS Code](https://code.visualstudio.com/docs/introvideos/configure)，参见官方 [介绍](https://code.visualstudio.com/docs/introvideos/configure)。
 
 ### 配置运行前端工程的环境
 
@@ -251,9 +350,6 @@ source /Users/whoami/.rvm/scripts/rvm #此处应更新为你本机的位置，�
 运行下面的指令安装不同运行时下需要的第三方库（记得验证这些库是否成功安装），
 
 ```shell
-sh ./tool/apm.global.install.sh   # 如果使用的是 OS X 系统
-sh ./tool/apm.linux.global.install.sh   # 如果使用的是 Linux 系统
-
 sh ./tool/gem.osx.install.sh   # 如果使用的是 OS X 系统
 sh ./tool/gem.linux.install.sh   # 如果使用的是 Linux 系统
 
@@ -273,6 +369,32 @@ sh ./tool/cargo.install.sh
 ### 使用 Slack 自动化协作
 
 正如前面所说，团队中协作的根本问题是信息的共享，所以我们借助 Slack 这样的平台，加速诸如 Git 提交、Trello 看板的操作、发布过程反馈等等信息的整合及快速流通。
+
+
+
+## 熟悉项目
+
+> 提示：以 README.md 文档为入口，逐步深入，反复熟悉所有文档及工程。
+
+### 文件夹结构
+
+```
+~                          # 工程根目录存放所有工程文件，诸如: .gitignore, .nvmrc, .eslintrc, .editorconfig 等。
+├── [.atom]                # 存放 Atom 配置文件
+├── [.vscode]              # 存放 Visual Studio Code 配置文件
+├── [.sublimetext]         # 存放 Sublime Text 配置文件
+├── [.gitlab]              # 存放问题、混合请求的描述模板
+├── [.github]              # 存放问题、混合请求的描述模板
+├── [client]               # 存放客户端文件。
+├── [doc]                  # 存放文档
+├── [flow-typed]           # 存放类型定义文件，详细参见 https://github.com/flowtype/flow-typed
+├── [server]               # 存放服务端文件。
+├── [task]                 # 存放 gulp 任务文件。
+├── [tool]                 # 存放脚手架相关的 shell 脚本
+├── [test]                 # 存放测试用例
+├── [vendor]               # 存放无法通过 NPM 安装的第三方库、组件等
+├── [node_modules]         # 存放 node.js 模块
+```
 
 
 
