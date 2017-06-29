@@ -11,7 +11,7 @@
     "start": "./node_modules/.bin/babel generators/**/*.es6 -d ./ -w",
     "build": "./node_modules/.bin/babel generators/**/*.es6 -d ./ && yarn check-large-dirs",
     "pretest": "./node_modules/.bin/eslint ./generators/**/*.es6 --fix",
-    "test": "./node_modules/.bin/nyc --reporter=html --reporter=text --report-dir=doc/coverage --cache=false ./node_modules/.bin/mocha test/setup.js test/app.js -u exports -c -G -t 120s --es_staging",
+    "test": "./node_modules/.bin/nyc --reporter=html --reporter=text --report-dir=coverage --cache=false ./node_modules/.bin/mocha test/setup.js test/app.js -u exports -c -G -t 120s --es_staging",
     "coverage": "node_modules/.bin/nyc report --reporter=text-lcov | node_modules/.bin/coveralls",
     "report-coverage": "node_modules/.bin/nyc report --reporter=lcov > coverage.lcov && node_modules/.bin/codecov --token=12d3ada6-7a3c-41b9-9cd8-ac6061e26e42",
     "check-large-dirs": "./node_modules/.bin/space-hogs",
@@ -29,7 +29,7 @@
     "release-minor": "yarn check && yarn update-authors && ./node_modules/.bin/standard-version --release-as minor -a -n -i CHANGELOG.md && yarn pack && yarn check-large-dirs",
     "release-patch": "yarn check && yarn update-authors && ./node_modules/.bin/standard-version --release-as patch -a -n -i CHANGELOG.md && yarn pack && yarn check-large-dirs",
     "update-atom-plugins": "apm upgrade --no-confirm",
-    "lines": "loc --exclude node_modules > ./doc/lines.txt && wc -l $(git ls-files) > ./doc/lines.each.txt"
+    "lines": "loc --exclude node_modules > lines.txt && wc -l $(git ls-files) > lines.each.txt"
   },
   "pre-commit": [
     "jscs",

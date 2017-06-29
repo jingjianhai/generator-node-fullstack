@@ -9,7 +9,7 @@
        2 .gitattributes
        9 .github/ISSUE_TEMPLATE.md
        7 .github/PULL_REQUEST_TEMPLATE.md
-     289 .gitignore
+     293 .gitignore
       16 .gitlab-ci.yml
        9 .gitlab/ISSUE_TEMPLATE.md
        7 .gitlab/PULL_REQUEST_TEMPLATE.md
@@ -26,9 +26,13 @@
       12 .vscode/settings.json
        1 .yo-rc.json
        2 AUTHORS
+     538 CONTRIBUTING.md
      201 LICENSE
-     183 README.md
+     176 README.md
+       2 application.conf
       49 appveyor.yml
+     324 doc/lines.each.txt
+      16 doc/lines.txt
      515 generators/app/index.es6
      394 generators/app/index.js
       18 generators/app/templates/.atom/config.cson
@@ -52,6 +56,7 @@
       34 generators/app/templates/.sublimetext/preferences.sublime-settings
       38 generators/app/templates/.vscode/formatter.json
       12 generators/app/templates/.vscode/settings.json
+     422 generators/app/templates/CONTRIBUTING.md
      151 generators/app/templates/README.md
       12 generators/app/templates/animate-config.json
        0 generators/app/templates/client/fonts/.gitkeep
@@ -113,6 +118,7 @@
        2 generators/app/templates/license/nolicense.txt
       24 generators/app/templates/license/unlicense.txt
       19 generators/app/templates/modernizr-config.json
+   15767 generators/app/templates/package-lock.json
      217 generators/app/templates/package.json
     1052 generators/app/templates/redis.conf
        4 generators/app/templates/server.js
@@ -150,16 +156,19 @@
        1 generators/app/templates/test/setup.js
        1 generators/app/templates/test/static.urls.txt
       24 generators/app/templates/test/test.js
-      77 generators/app/templates/tool/apm.global.install.sh
-      74 generators/app/templates/tool/apm.global.uninstall.sh
-      75 generators/app/templates/tool/apm.linux.global.install.sh
-      76 generators/app/templates/tool/apm.linux.global.uninstall.sh
+      54 generators/app/templates/tool/apm.install.sh
+      54 generators/app/templates/tool/apm.uninstall.sh
       10 generators/app/templates/tool/authors.sh
+       8 generators/app/templates/tool/cargo.install.sh
+      11 generators/app/templates/tool/clear.console
        8 generators/app/templates/tool/gem.linux.install.sh
        8 generators/app/templates/tool/gem.osx.install.sh
+      36 generators/app/templates/tool/npm.global.install.sh
+      36 generators/app/templates/tool/npm.global.uninstall.sh
+       8 generators/app/templates/tool/pre.comiit.hooks.install
        2 generators/app/templates/tool/public.address.on.server.sh
-      26 generators/app/templates/tool/yarn.global.install.sh
-      26 generators/app/templates/tool/yarn.global.uninstall.sh
+      36 generators/app/templates/tool/yarn.global.install.sh
+      36 generators/app/templates/tool/yarn.global.uninstall.sh
     1482 generators/app/templates/vendor/fileUpload/jquery.fileupload.js
      224 generators/app/templates/vendor/fileUpload/jquery.iframe-transport.js
      572 generators/app/templates/vendor/fileUpload/jquery.ui.widget.js
@@ -315,10 +324,43 @@
        8 generators/app/templates/webpack.dev.js
       29 generators/app/templates/webpack.dll.config.js
       95 generators/app/templates/webpack.make.js
+   11162 generators/app/templates/yarn.lock
     6739 package-lock.json
      104 package.json
+      10 site/404.html
+       8 site/Gemfile
+     209 site/Gemfile.lock
+       8 site/LICENSE.md
+      23 site/_config.yml
+      27 site/_includes/head.html
+      35 site/_includes/sidebar.html
+      15 site/_layouts/default.html
+       8 site/_layouts/page.html
+      25 site/_layouts/post.html
+     113 site/_posts/2017-06-13-introducing-blackdoc.md
+      28 site/atom.xml
+     541 site/contributing.md
+      37 site/index.html
+     409 site/public/css/blackdoc.css
+     431 site/public/css/poole.css
+      66 site/public/css/syntax.css
+       4 site/public/favicon.ico
+    9052 site/public/images/blackdoc-screenshot.jpg
+     578 site/public/images/reverse-screenshot.png
       51 test/app.js
        1 test/setup.js
+      54 tool/apm.install.sh
+      54 tool/apm.uninstall.sh
       10 tool/authors.sh
-    5201 yarn.lock
-   60334 total
+       8 tool/cargo.install.sh
+      11 tool/clear.console
+       8 tool/gem.linux.install.sh
+       8 tool/gem.osx.install.sh
+      36 tool/npm.global.install.sh
+      36 tool/npm.global.uninstall.sh
+       8 tool/pre.comiit.hooks.install
+       2 tool/public.address.on.server.sh
+      36 tool/yarn.global.install.sh
+      36 tool/yarn.global.uninstall.sh
+    5186 yarn.lock
+  100396 total
