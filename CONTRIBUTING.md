@@ -35,6 +35,9 @@
   - [通过 Trello 解决协作中信息共享的问题](#通过-trello-解决协作中信息共享的问题)
   - [使用 Slack 自动化协作](#使用-slack-自动化协作)
 
+[熟悉项目](#熟悉项目)
+  - [文件夹结构](#文件夹结构)
+
 [指南](#指南)
   - [工作流](#工作流)
   - [一个页面完成的标准](#一个页面完成的标准)
@@ -358,6 +361,30 @@ sh ./tool/cargo.install.sh
 ### 使用 Slack 自动化协作
 
 正如前面所说，团队中协作的根本问题是信息的共享，所以我们借助 Slack 这样的平台，加速诸如 Git 提交、Trello 看板的操作、发布过程反馈等等信息的整合及快速流通，哪怕某个成员推送了代码也第一时间反馈给所有其他成员。
+
+
+
+## 熟悉项目
+
+> 提示：以 [README.md](https://github.com/huso-io/generator-node-fullstack/blob/master/README.md)
+ 文档为入口，逐步深入，反复熟悉所有文档及工程。
+
+### 文件夹结构
+
+```
+~                          # 工程根目录存放所有工程文件，诸如: .gitignore, .nvmrc, .eslintrc, .editorconfig 等。
+├── [generators]           # 存放各类生成器
+├── [.sublimetext]         # 存放 Sublime Text 配置文件
+├── [.vscode]              # 存放 Visual Studio Code 配置文件
+├── [.atom]                # 存放 Atom 配置文件
+├── [.gitlab]              # 存放问题、混合请求的描述模板
+├── [.github]              # 存放问题、混合请求的描述模板
+├── [task]                 # 存放 gulp 任务文件。
+├── [doc]                  # 存放文档
+├── [tool]                 # 存放脚手架相关的 `shell` 脚本
+├── [test]                 # 存放生成器测试用例
+├── [node_modules]         # 存放 node.js 模块
+```
 
 
 
