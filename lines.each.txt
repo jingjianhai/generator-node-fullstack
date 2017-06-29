@@ -26,13 +26,31 @@
       12 .vscode/settings.json
        1 .yo-rc.json
        2 AUTHORS
-     538 CONTRIBUTING.md
+     537 CONTRIBUTING.md
      201 LICENSE
      176 README.md
        2 application.conf
       49 appveyor.yml
-     324 doc/lines.each.txt
-      16 doc/lines.txt
+      10 doc/404.html
+       8 doc/Gemfile
+     209 doc/Gemfile.lock
+       8 doc/LICENSE.md
+      23 doc/_config.yml
+      27 doc/_includes/head.html
+      35 doc/_includes/sidebar.html
+      15 doc/_layouts/default.html
+       8 doc/_layouts/page.html
+      25 doc/_layouts/post.html
+     113 doc/_posts/2017-06-13-introducing-blackdoc.md
+      28 doc/atom.xml
+     540 doc/contributing.md
+      37 doc/index.html
+     409 doc/public/css/blackdoc.css
+     431 doc/public/css/poole.css
+      66 doc/public/css/syntax.css
+       4 doc/public/favicon.ico
+    9052 doc/public/images/blackdoc-screenshot.jpg
+     578 doc/public/images/reverse-screenshot.png
      515 generators/app/index.es6
      394 generators/app/index.js
       18 generators/app/templates/.atom/config.cson
@@ -56,7 +74,7 @@
       34 generators/app/templates/.sublimetext/preferences.sublime-settings
       38 generators/app/templates/.vscode/formatter.json
       12 generators/app/templates/.vscode/settings.json
-     422 generators/app/templates/CONTRIBUTING.md
+     544 generators/app/templates/CONTRIBUTING.md
      151 generators/app/templates/README.md
       12 generators/app/templates/animate-config.json
        0 generators/app/templates/client/fonts/.gitkeep
@@ -325,28 +343,9 @@
       29 generators/app/templates/webpack.dll.config.js
       95 generators/app/templates/webpack.make.js
    11162 generators/app/templates/yarn.lock
-    6739 package-lock.json
-     104 package.json
-      10 site/404.html
-       8 site/Gemfile
-     209 site/Gemfile.lock
-       8 site/LICENSE.md
-      23 site/_config.yml
-      27 site/_includes/head.html
-      35 site/_includes/sidebar.html
-      15 site/_layouts/default.html
-       8 site/_layouts/page.html
-      25 site/_layouts/post.html
-     113 site/_posts/2017-06-13-introducing-blackdoc.md
-      28 site/atom.xml
-     541 site/contributing.md
-      37 site/index.html
-     409 site/public/css/blackdoc.css
-     431 site/public/css/poole.css
-      66 site/public/css/syntax.css
-       4 site/public/favicon.ico
-    9052 site/public/images/blackdoc-screenshot.jpg
-     578 site/public/images/reverse-screenshot.png
+     329 lines.each.txt
+      17 lines.txt
+     115 package.json
       51 test/app.js
        1 test/setup.js
       54 tool/apm.install.sh
@@ -362,5 +361,5 @@
        2 tool/public.address.on.server.sh
       36 tool/yarn.global.install.sh
       36 tool/yarn.global.uninstall.sh
-    5186 yarn.lock
-  100396 total
+    5934 yarn.lock
+   94542 total

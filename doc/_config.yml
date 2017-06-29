@@ -11,7 +11,7 @@ permalink:        pretty
 title:            Node 全栈
 tagline:          generator-node-fullstack
 description:      "这是一个专注于真实生产场景的 Node 全栈工程生成器..."
-url:              https://github.com/karloespiritu/blackdoc
+url:              https://github.com/huso-io/generator-node-fullstack
 baseurl:          /
 
 paginate:         5
