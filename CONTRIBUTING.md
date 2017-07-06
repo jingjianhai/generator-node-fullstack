@@ -131,6 +131,8 @@
 
 ## 开发前要做的准备
 
+> 提示：`git clone https://github.com/huso-io/generator-node-fullstack.git`，准备开发前先将项目拉取下来，接下来的一些配置会需要用到项目中的一些工具脚本。
+
 ### 使用 Linux/Unix 系统
 
 系统支持，
@@ -261,7 +263,9 @@ source /Users/whoami/.rvm/scripts/rvm #此处应更新为你本机的位置，�
 
 **实时构建** 的过程中不包含代码的各种检测可以带来更高的 **实时构建** 效率，基于这样的考虑，我们默认将诸如书写、类型、语法检测等任务交给编辑器以提升实时构建的效率等，也正是如此，我们需要统一编辑器的使用约定，
 
-**注重编辑器的提示界面，推荐使用 [Atom](https://atom.io/)，**
+:traffic_light: **注重编辑器的提示界面，推荐使用 [Atom](https://atom.io/)**，去 [官网](https://atom.io/) 下载安装包以安装 Atom 编辑器，
+
+> Ubuntu 筒子们可参阅 [How to install Atom editor in Ubuntu 14.04](https://codeforgeek.com/2014/09/install-atom-editor-ubuntu-14-04/) 或 [Install Atom Text Editor in Ubuntu 16.04 (both 32&64bit)](http://tipsonubuntu.com/2016/08/05/install-atom-text-editor-ubuntu-16-04/) 这 2 篇文章中任意一篇通过命令行界面安装 Atom 编辑器。
 
 安装 Atom 插件，
 
@@ -297,7 +301,7 @@ sh ./tool/apm.global.install.sh   # 如果使用的是 OS X 系统
 
 结合上面插件的 Atom 详细配置参见这个 [Gist](https://gist.github.com/iTonyYo/759c04a87501425a6861d6f19b4a2202)，如何自定义 Atom 参见官方的 [介绍](http://flight-manual.atom.io/using-atom/sections/basic-customization/)。
 
-:traffic_light: **更在乎编辑器的性能，推荐使用 [Visual Studio Code](https://code.visualstudio.com/)，**
+:traffic_light: **更在乎编辑器的性能，推荐使用 [Visual Studio Code](https://code.visualstudio.com/)**，去 [官网](https://code.visualstudio.com/Download) 下载安装包以安装 Visual Studio Code 编辑器，
 
 安装 Visual Studio Code 插件，
 
@@ -345,7 +349,7 @@ VS Code 的详细配置已经可视化在 `.vscode` 目录下，如果想要了�
 sh ./tool/gem.osx.install.sh   # 如果使用的是 OS X 系统
 sh ./tool/gem.linux.install.sh   # 如果使用的是 Linux 系统
 
-sh ./tool/yarn.global.install.sh
+sh ./tool/npm.global.install.sh
 
 sh ./tool/cargo.install.sh
 ```
