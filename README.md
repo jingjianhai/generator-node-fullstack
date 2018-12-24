@@ -140,7 +140,7 @@
       <td align="center" valign="top">
         <img width="200" height="200" src="https://avatars0.githubusercontent.com/u/5499703?v=3&s=450">
         <br>
-        <a href="https://github.com/iTonyYo">沈维忠</a>
+        <a href="https://github.com/iTonyYo">iYoooooooo</a>
         <p>生成器核心 & 公共关系</p>
         <br>
         <p>创始人 & 工程师</p>
